@@ -20,7 +20,7 @@ angular.module('dragApp', [])
           console.log('เข้าในนี้ไหม 1')
           $scope.state = 1
           console.log($scope.state, 'state')
-        }else {
+        }if (SUMDATA > 0) {
           $scope.stood = 1
           console.log($scope.stood, 'stood')
         }
@@ -157,7 +157,7 @@ angular.module('dragApp', [])
           console.log('เข้าในนี้ไหม 2')
           $scope.state = 1
           console.log($scope.state, 'state freezer')
-        }else {
+        }if (SUMDATA > 0) {
           $scope.stood = 1
           console.log($scope.stood, 'stood freezer')
         }
