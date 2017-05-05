@@ -28,7 +28,7 @@ angular.module('dragApp', [])
       console.log($scope.state, $scope.stood, 'gggggggg')
       // ////// LED Check //////
     })
-    console.log($scope.a, $scope.b, 'getapi and return')
+    console.log($scope.state, $scope.stood, 'getapi and return')
   }
   $scope.getData()
   $scope.positionDrag = function (index) {
