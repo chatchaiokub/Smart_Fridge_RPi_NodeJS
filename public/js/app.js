@@ -228,7 +228,6 @@ angular.module('dragApp', [])
     }
   }
   $scope.LEDAlert = function () {
-    console.log($scope.state, $scope.stood, 'this')
     if ($scope.state === 1 && $scope.stood === 1) {
       $http.get('/ledAlertON').success(function (response) {
         console.log(response)
