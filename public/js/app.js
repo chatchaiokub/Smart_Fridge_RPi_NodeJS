@@ -10,8 +10,8 @@ angular.module('dragApp', [])
       $scope.drag = response
       // ////// LED Check //////
       $scope.CheckData = []
-      for (var i = 0; i < $scope.response.length; i++) {
-        $scope.CheckData[i] = $scope.response[i].endDate
+      for (var i = 0; i < response.length; i++) {
+        $scope.CheckData[i] = response[i].endDate
         var now = new Date()
         var datePick = new Date($scope.CheckData[i])
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
