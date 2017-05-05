@@ -5,8 +5,6 @@ angular.module('dragApp', [])
   $scope.freezer = []
   $scope.index = ''
 
-  $scope.x = []
-
   $scope.getData = function () {
     $http.get('/api').success(function (response) {
       $scope.drag = response
@@ -17,15 +15,12 @@ angular.module('dragApp', [])
         var now = new Date()
         var datePick = new Date($scope.CheckData[i])
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-
-        $scope.x[i] = SUMDATA
-        // if (SUMDATA <= 0) {
-        //   $scope.state = 1
-        // }if (SUMDATA > 0) {
-        //   $scope.stood = 1
-        // }
+        if (SUMDATA <= 0) {
+          $scope.state = 1
+        }if (SUMDATA > 0) {
+          $scope.stood = 1
+        }
       }
-      console.log($scope.x.length)
       // ////// LED Check //////
     })
   }
