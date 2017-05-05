@@ -4,10 +4,9 @@ angular.module('dragApp', [])
   $scope.drag = []
   $scope.freezer = []
   $scope.index = ''
-  // $scope.coutOn = 0
-  // $scope.coutOff = 0
 
   $scope.getData = function () {
+    console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
       $scope.drag = response
       // ////// LED Check //////
@@ -18,9 +17,9 @@ angular.module('dragApp', [])
         let datePick = new Date($scope.CheckData[i])
         let SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
-          ++$scope.coutOn
+          $scope.stateON = 1
         }else {
-          ++$scope.coutOff
+          $scope.stateOFF = 1
         }
       }
       // ////// LED Check //////
@@ -141,6 +140,7 @@ angular.module('dragApp', [])
   })
   // ///////////////////////////////////////////////////////
   $scope.getDataFreezer = function () {
+    console.log('getFreezer ครั้งที่ 1')
     $http.get('/freezer').success(function (response) {
       $scope.freezer = response
       // ////// LED Check //////
@@ -151,9 +151,9 @@ angular.module('dragApp', [])
         let datePick = new Date($scope.CheckFreezer[i])
         let SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
-          ++$scope.coutOn
+          $scope.stateON = 1
         }else {
-          ++$scope.coutOff
+          $scope.stateOFF = 1
         }
       }
       // ////// LED Check //////
@@ -221,11 +221,11 @@ angular.module('dragApp', [])
     }
   }
   $scope.LEDAlert = function () {
-    if ($scope.coutOn !== 0) {
+    if ($scope.state !== 0) {
       $http.get('/ledAlertON').success(function (response) {
         console.log(response)
       })
-    }if ($scope.coutOff !== 0) {
+    }if ($scope.state !== 0) {
       $http.get('/ledAlertOFF').success(function (response) {
         console.log(response)
       })
