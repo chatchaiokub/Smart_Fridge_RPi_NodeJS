@@ -7,12 +7,11 @@ angular.module('dragApp', [])
 
   $scope.getData = function () {
     $http.get('/api').success(function (response) {
-      console.log(response)
       $scope.drag = response
       // ////// LED Check //////
       $scope.CheckData = []
-      for (var i = 0; i < $scope.drag.length; i++) {
-        $scope.CheckData[i] = $scope.drag[i].endDate
+      for (var i = 0; i < $scope.response.length; i++) {
+        $scope.CheckData[i] = $scope.response[i].endDate
         var now = new Date()
         var datePick = new Date($scope.CheckData[i])
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
@@ -26,6 +25,7 @@ angular.module('dragApp', [])
     })
   }
   $scope.getData()
+  console.log($scope.state, $scope.stood, '5555555')
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
     css.position = 'absolute'
