@@ -27,9 +27,9 @@ angular.module('dragApp', [])
       }
       // ////// LED Check //////
     })
+    console.log($scope.x.length)
   }
   $scope.getData()
-  console.log($scope.x.length)
   console.log($scope.state, $scope.stood, '5555555')
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
