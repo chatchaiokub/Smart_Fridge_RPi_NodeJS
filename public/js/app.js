@@ -4,10 +4,10 @@ angular.module('dragApp', [])
   $scope.drag = []
   $scope.freezer = []
   $scope.index = ''
-  $scope.CheckData = []
 
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
+    $scope.CheckData = []
     $http.get('/api').success(function (response) {
       $scope.drag = response
       // ////// LED Check //////
