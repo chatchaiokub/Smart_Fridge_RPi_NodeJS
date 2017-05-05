@@ -5,6 +5,9 @@ angular.module('dragApp', [])
   $scope.freezer = []
   $scope.index = ''
 
+  $scope.state = []
+  $scope.stood = []
+
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
@@ -18,10 +21,10 @@ angular.module('dragApp', [])
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 1')
-          $scope.state = 1
+          $scope.state.push(1)
           console.log($scope.state, 'state')
         }if (SUMDATA > 0) {
-          $scope.stood = 1
+          $scope.stood.push(1)
           console.log($scope.stood, 'stood')
         }
       }
@@ -156,10 +159,10 @@ angular.module('dragApp', [])
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 2')
-          $scope.state = 1
+          $scope.state.push(1)
           console.log($scope.state, 'state freezer')
         }if (SUMDATA > 0) {
-          $scope.stood = 1
+          $scope.stood.push(1)
           console.log($scope.stood, 'stood freezer')
         }
       }
@@ -227,17 +230,29 @@ angular.module('dragApp', [])
       return SUMFREEZER
     }
   }
+  // $scope.LEDAlert = function () {
+  //   console.log($scope.state, $scope.stood, 'this')
+  //   if ($scope.state === 1 && $scope.stood === 1) {
+  //     $http.get('/ledAlertON').success(function (response) {
+  //       console.log(response)
+  //     })
+  //   }else {
+  //     $http.get('/ledAlertOFF').success(function (response) {
+  //       console.log(response)
+  //     })
+  //   }
+  // }
   $scope.LEDAlert = function () {
-    console.log($scope.state, $scope.stood, 'this')
-    if ($scope.state === 1 && $scope.stood === 1) {
-      $http.get('/ledAlertON').success(function (response) {
-        console.log(response)
-      })
-    }else {
-      $http.get('/ledAlertOFF').success(function (response) {
-        console.log(response)
-      })
-    }
+    console.log($scope.state[0], $scope.state[1], $scope.stood[0], $scope.stood[1], 'this')
+    // if ($scope.state === 1 && $scope.stood === 1) {
+    //   $http.get('/ledAlertON').success(function (response) {
+    //     console.log(response)
+    //   })
+    // }else {
+    //   $http.get('/ledAlertOFF').success(function (response) {
+    //     console.log(response)
+    //   })
+    // }
   }
   $scope.LEDAlert()
   $scope.order = [{item: 'Coke 220ml'}, {item: 'Milk 220ml'}, {item: 'Water 220ml'}]
