@@ -13,9 +13,9 @@ angular.module('dragApp', [])
       $scope.CheckData = []
       for (var i = 0; i < $scope.drag.length; i++) {
         $scope.CheckData[i] = $scope.drag[i].endDate
-        let now = new Date()
-        let datePick = new Date($scope.CheckData[i])
-        let SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
+        var now = new Date()
+        var datePick = new Date($scope.CheckData[i])
+        var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 1')
           $scope.state = 1
@@ -150,9 +150,9 @@ angular.module('dragApp', [])
       $scope.CheckFreezer = []
       for (var i = 0; i < $scope.freezer.length; i++) {
         $scope.CheckFreezer[i] = $scope.freezer[i].endDate
-        let now = new Date()
-        let datePick = new Date($scope.CheckFreezer[i])
-        let SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
+        var now = new Date()
+        var datePick = new Date($scope.CheckFreezer[i])
+        var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 2')
           $scope.state = 1
