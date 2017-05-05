@@ -19,15 +19,14 @@ angular.module('dragApp', [])
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 1')
           $scope.state = 1
-          return ($scope.state)
           // console.log($scope.state, 'state')
         }if (SUMDATA > 0) {
           $scope.stood = 1
-          return ($scope.state)
           // console.log($scope.stood, 'stood')
         }
       }
       // ////// LED Check //////
+      return ($scope.state, $scope.state)
     })
     console.log($scope.state, $scope.stood, 'getapi and return')
   }
