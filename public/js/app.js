@@ -4,7 +4,7 @@ angular.module('dragApp', [])
   $scope.drag = []
   $scope.freezer = []
   $scope.index = ''
-
+  var x
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
@@ -19,6 +19,7 @@ angular.module('dragApp', [])
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 1')
           $scope.state = 1
+          x = 1
           console.log($scope.state, 'state')
         }if (SUMDATA > 0) {
           $scope.stood = 1
@@ -30,6 +31,7 @@ angular.module('dragApp', [])
     })
     console.log($scope.state, $scope.stood, 'getapi and return')
   }
+  console.log(x, 'xxx')
   $scope.getData()
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
