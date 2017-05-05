@@ -7,8 +7,8 @@ angular.module('dragApp', [])
 
   $scope.getData = function () {
     $http.get('/api').success(function (response) {
-      $scope.drag = response.data
-      console.log($scope.drag)
+      console.log(response)
+      $scope.drag = response
       // ////// LED Check //////
       $scope.CheckData = []
       for (var i = 0; i < $scope.drag.length; i++) {
