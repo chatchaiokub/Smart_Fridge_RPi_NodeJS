@@ -6,7 +6,6 @@ angular.module('dragApp', [])
   $scope.index = ''
 
   $scope.getData = function () {
-    $scope.state = 0
     console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
       $scope.drag = response
