@@ -4,11 +4,13 @@ angular.module('dragApp', [])
   $scope.drag = []
   $scope.freezer = []
   $scope.index = ''
+  $scope.x = []
 
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
       $scope.drag = response
+      $scope.x = $scope.drag
       console.log($scope.drag, 'Hey!')
       $scope.cal()
       // ////// LED Check //////
@@ -51,6 +53,7 @@ angular.module('dragApp', [])
     }
   }
   console.log($scope.state, $scope.stood, 'Hey!')
+  console.log($scope.x, 'HeyXXX!')
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
     css.position = 'absolute'
