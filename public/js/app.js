@@ -19,11 +19,9 @@ angular.module('dragApp', [])
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 1')
           $scope.state = 1
-          $scope.terminate = $scope.state
           console.log($scope.state, 'state')
         }if (SUMDATA > 0) {
           $scope.stood = 1
-          $scope.terminood = $scope.stood
           console.log($scope.stood, 'stood')
         }
       }
@@ -157,21 +155,17 @@ angular.module('dragApp', [])
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 2')
-          $scope.state = 1
-          $scope.terminate = $scope.state
-          console.log($scope.state, 'state freezer')
+          $scope.statee = 1
+          console.log($scope.statee, 'state freezer')
         }if (SUMDATA > 0) {
-          $scope.stood = 1
-          $scope.terminood = $scope.stood
-          console.log($scope.stood, 'stood freezer')
+          $scope.stoodd = 1
+          console.log($scope.stoodd, 'stood freezer')
         }
       }
       // ////// LED Check //////
     })
   }
-  console.log($scope.terminate, $scope.terminood, 'MIDDDDD')
   $scope.getDataFreezer()
-  console.log($scope.terminate, $scope.terminood, 'FINAL')
   $scope.openFreezer = function () {
     $('#openFreezer').openModal()
   }
