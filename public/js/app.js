@@ -8,6 +8,7 @@ angular.module('dragApp', [])
   $scope.getData = function () {
     $http.get('/api').success(function (response) {
       $scope.drag = response.data
+      console.log($scope.drag)
       // ////// LED Check //////
       $scope.CheckData = []
       for (var i = 0; i < $scope.drag.length; i++) {
@@ -158,7 +159,6 @@ angular.module('dragApp', [])
     })
   }
   $scope.getDataFreezer()
-  console.log($scope.drag)
   $scope.openFreezer = function () {
     $('#openFreezer').openModal()
   }
