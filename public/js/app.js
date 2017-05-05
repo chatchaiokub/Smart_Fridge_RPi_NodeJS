@@ -148,8 +148,8 @@ angular.module('dragApp', [])
       $scope.freezer = response
       // ////// LED Check //////
       $scope.CheckFreezer = []
-      for (var i = 0; i < $scope.drag.length; i++) {
-        $scope.CheckFreezer[i] = $scope.drag[i].endDate
+      for (var i = 0; i < $scope.freezer.length; i++) {
+        $scope.CheckFreezer[i] = $scope.freezer[i].endDate
         let now = new Date()
         let datePick = new Date($scope.CheckFreezer[i])
         let SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
