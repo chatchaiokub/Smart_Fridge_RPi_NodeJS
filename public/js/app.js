@@ -4,15 +4,13 @@ angular.module('dragApp', [])
   $scope.drag = []
   $scope.freezer = []
   $scope.index = ''
+  $scope.CheckData = []
 
-  // $scope.getData = function () {
-    $scope.a = 0
-    $scope.b = 0
+  $scope.getData = function () {
     console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
       $scope.drag = response
       // ////// LED Check //////
-      $scope.CheckData = []
       for (var i = 0; i < $scope.drag.length; i++) {
         $scope.CheckData[i] = $scope.drag[i].endDate
         var now = new Date()
@@ -27,15 +25,12 @@ angular.module('dragApp', [])
           console.log($scope.stood, 'stood')
         }
       }
-      $scope.a = $scope.state
-      $scope.b = $scope.stood
       console.log($scope.state, $scope.stood, 'gggggggg')
-      console.log($scope.a, $scope.b, 'wwwwppppp')
       // ////// LED Check //////
     })
     console.log($scope.a, $scope.b, 'getapi and return')
-  // }
-  // $scope.getData()
+  }
+  $scope.getData()
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
     css.position = 'absolute'
