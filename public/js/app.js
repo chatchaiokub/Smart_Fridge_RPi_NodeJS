@@ -10,31 +10,46 @@ angular.module('dragApp', [])
     $http.get('/api').success(function (response) {
       $scope.drag = response
       // ////// LED Check //////
-      $scope.CheckData = []
-      for (var i = 0; i < $scope.drag.length; i++) {
-        $scope.CheckData[i] = $scope.drag[i].endDate
-        var now = new Date()
-        var datePick = new Date($scope.CheckData[i])
-        var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-        if (SUMDATA <= 0) {
-          console.log('เข้าในนี้ไหม 1')
-          $scope.x = 1
-          // $scope.state = 1
-          console.log($scope.state, 'state')
-        }if (SUMDATA > 0) {
-          $scope.y = 1
-          // $scope.stood = 1
-          console.log($scope.stood, 'stood')
-        }
-      }
-      console.log($scope.state, $scope.stood, 'gggggggg')
+      // $scope.CheckData = []
+      // for (var i = 0; i < $scope.drag.length; i++) {
+      //   $scope.CheckData[i] = $scope.drag[i].endDate
+      //   var now = new Date()
+      //   var datePick = new Date($scope.CheckData[i])
+      //   var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
+      //   if (SUMDATA <= 0) {
+      //     console.log('เข้าในนี้ไหม 1')
+      //     $scope.state = 1
+      //     console.log($scope.state, 'state')
+      //   }if (SUMDATA > 0) {
+      //     $scope.stood = 1
+      //     console.log($scope.stood, 'stood')
+      //   }
+      // }
+      // console.log($scope.state, $scope.stood, 'gggggggg')
       // ////// LED Check //////
     })
-    return ($scope.x, $scope.y)
-    // console.log($scope.x, $scope.y, 'getapi and return')
+    // console.log($scope.state, $scope.stood, 'getapi and return')
   }
   $scope.getData()
-  console.log($scope.x, $scope.y, 'getapi and return')
+  $scope.cal = function () {
+    $scope.CheckData = []
+    for (var i = 0; i < $scope.drag.length; i++) {
+      $scope.CheckData[i] = $scope.drag[i].endDate
+      var now = new Date()
+      var datePick = new Date($scope.CheckData[i])
+      var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
+      if (SUMDATA <= 0) {
+        console.log('เข้าในนี้ไหม 1')
+        $scope.state = 1
+        console.log($scope.state, 'state')
+      }if (SUMDATA > 0) {
+        $scope.stood = 1
+        console.log($scope.stood, 'stood')
+      }
+    }
+  }
+  $scope.cal()
+  console.log($scope.state, $scope.stood, 'Hey!')
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
     css.position = 'absolute'
