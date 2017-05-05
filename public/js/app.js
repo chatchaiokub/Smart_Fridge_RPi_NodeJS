@@ -218,6 +218,7 @@ angular.module('dragApp', [])
     }
   }
   $scope.LEDAlert = function () {
+    console.log($scope.state, 'this')
     if ($scope.state === 0) {
       $http.get('/ledAlertOFF').success(function (response) {
         console.log(response)
