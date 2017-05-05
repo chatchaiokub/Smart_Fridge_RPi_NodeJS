@@ -8,7 +8,7 @@ angular.module('dragApp', [])
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
-      $scope.drag = response
+      $scope.drag = response.data
       $scope.cal()
       // ////// LED Check //////
       $scope.CheckData = []
