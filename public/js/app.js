@@ -25,6 +25,7 @@ angular.module('dragApp', [])
           console.log($scope.stood, 'stood')
         }
       }
+      console.log($scope.state, $scope.stood, 'forLoop')
       // ////// LED Check //////
     })
   }
@@ -155,11 +156,11 @@ angular.module('dragApp', [])
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 2')
-          $scope.statee = 1
-          console.log($scope.statee, 'state freezer')
+          $scope.state = 1
+          console.log($scope.state, 'state freezer')
         }if (SUMDATA > 0) {
-          $scope.stoodd = 1
-          console.log($scope.stoodd, 'stood freezer')
+          $scope.stood = 1
+          console.log($scope.stood, 'stood freezer')
         }
       }
       // ////// LED Check //////
