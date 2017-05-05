@@ -5,8 +5,8 @@ angular.module('dragApp', [])
   $scope.freezer = []
   $scope.index = ''
 
-  $scope.state = 0
-  $scope.stood = 0
+  $scope.a = 0
+  $scope.b = 0
 
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
@@ -28,10 +28,13 @@ angular.module('dragApp', [])
           console.log($scope.stood, 'stood')
         }
       }
+      $scope.a = $scope.state
+      $scope.b = $scope.stood
       console.log($scope.state, $scope.stood, 'gggggggg')
+      console.log($scope.a, $scope.b, 'wwwwppppp')
       // ////// LED Check //////
     })
-    console.log($scope.state, $scope.stood, 'getapi and return')
+    console.log($scope.a, $scope.b, 'getapi and return')
   }
   $scope.getData()
   $scope.positionDrag = function (index) {
