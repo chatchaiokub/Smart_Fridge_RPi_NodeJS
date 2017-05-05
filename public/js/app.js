@@ -5,7 +5,7 @@ angular.module('dragApp', [])
   $scope.freezer = []
   $scope.index = ''
 
-  $scope.getData = function () {
+  // $scope.getData = function () {
     $scope.a = 0
     $scope.b = 0
     console.log('get ครั้งที่ 1')
@@ -34,8 +34,8 @@ angular.module('dragApp', [])
       // ////// LED Check //////
     })
     console.log($scope.a, $scope.b, 'getapi and return')
-  }
-  $scope.getData()
+  // }
+  // $scope.getData()
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
     css.position = 'absolute'
