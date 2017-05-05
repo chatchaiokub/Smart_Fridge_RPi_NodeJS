@@ -12,9 +12,9 @@ angular.module('dragApp', [])
       $scope.CheckData = []
       for (var i = 0; i < response.length; i++) {
         $scope.CheckData[i] = response[i].endDate
-        console.log($scope.CheckData[i])
         var now = new Date()
         var datePick = new Date($scope.CheckData[i])
+        console.log(datePick)
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
           $scope.state = 1
@@ -145,8 +145,8 @@ angular.module('dragApp', [])
       $scope.freezer = response
       // ////// LED Check //////
       $scope.CheckFreezer = []
-      for (var i = 0; i < $scope.freezer.length; i++) {
-        $scope.CheckFreezer[i] = $scope.freezer[i].endDate
+      for (var i = 0; i < response.length; i++) {
+        $scope.CheckFreezer[i] = response[i].endDate
         var now = new Date()
         var datePick = new Date($scope.CheckFreezer[i])
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
