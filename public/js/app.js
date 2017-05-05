@@ -6,10 +6,8 @@ angular.module('dragApp', [])
   $scope.index = ''
 
   $scope.getData = function () {
-    console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
       $scope.drag = response.data
-      $scope.cal()
       // ////// LED Check //////
       $scope.CheckData = []
       for (var i = 0; i < $scope.drag.length; i++) {
@@ -141,7 +139,6 @@ angular.module('dragApp', [])
   })
   // ///////////////////////////////////////////////////////
   $scope.getDataFreezer = function () {
-    console.log('getFreezer ครั้งที่ 1')
     $http.get('/freezer').success(function (response) {
       $scope.freezer = response
       // ////// LED Check //////
@@ -161,6 +158,7 @@ angular.module('dragApp', [])
     })
   }
   $scope.getDataFreezer()
+  console.log($scope.drag)
   $scope.openFreezer = function () {
     $('#openFreezer').openModal()
   }
