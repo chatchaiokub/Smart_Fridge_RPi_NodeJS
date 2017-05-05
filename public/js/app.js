@@ -10,6 +10,7 @@ angular.module('dragApp', [])
       $scope.drag = response
       // ////// LED Check //////
       $scope.CheckData = []
+      console.log(response.length)
       for (var i = 0; i < response.length; i++) {
         $scope.CheckData[i] = response[i].endDate
         var now = new Date()
@@ -23,7 +24,6 @@ angular.module('dragApp', [])
       }
       // ////// LED Check //////
     })
-    return ($scope.state)
   }
   $scope.getData()
   console.log($scope.state, $scope.stood, '5555555')
