@@ -7,6 +7,7 @@ angular.module('dragApp', [])
 
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
+    $scope.state = 0
     $http.get('/api').success(function (response) {
       $scope.drag = response
       // ////// LED Check //////
@@ -18,7 +19,9 @@ angular.module('dragApp', [])
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 1')
-          $scope.state = 1
+          var state
+          state = 1
+          $scope.state = state
           console.log($scope.state, 'state')
         }if (SUMDATA > 0) {
           $scope.stood = 1
