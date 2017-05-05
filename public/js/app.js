@@ -18,7 +18,9 @@ angular.module('dragApp', [])
         let SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 1')
-          // ++$scope.state
+          $scope.state = 1
+        }else {
+          $scope.stood = 1
         }
       }
       // ////// LED Check //////
@@ -151,7 +153,9 @@ angular.module('dragApp', [])
         let SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 2')
-          // ++$scope.state
+          $scope.state = 1
+        }else {
+          $scope.stood = 1
         }
       }
       // ////// LED Check //////
@@ -219,7 +223,16 @@ angular.module('dragApp', [])
     }
   }
   $scope.LEDAlert = function () {
-    console.log($scope.state, 'this')
+    console.log($scope.state, $scope.stood, 'this')
+    if ($scope.state === 1 && $scope.stood === 1) {
+      $http.get('/ledAlertON').success(function (response) {
+        console.log(response)
+      })
+    }else {
+      $http.get('/ledAlertOFF').success(function (response) {
+        console.log(response)
+      })
+    }
     // if ($scope.state === 0) {
     //   $http.get('/ledAlertOFF').success(function (response) {
     //     console.log(response)
@@ -231,40 +244,6 @@ angular.module('dragApp', [])
     // }
   }
   $scope.LEDAlert()
-  // $scope.LEDAlertDATA = function (date) {
-  //   var now = new Date()
-  //   var datePick = new Date(date)
-  //   var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-  //
-  //   if (SUMDATA <= 0) {
-  //     $http.get('/ledAlertON').success(function (response) {
-  //       console.log(response)
-  //     })
-  //     console.log('<=0')
-  //   }else if (SUMDATA > 0) {
-  //     $http.get('/ledAlertOFF').success(function (response) {
-  //       console.log(response)
-  //     })
-  //     console.log('>0')
-  //   }
-  // }
-  // $scope.LEDAlertFREEZER = function (date) {
-  //   var now = new Date()
-  //   var datePick = new Date(date)
-  //   var SUMFREEZER = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-  //
-  //   if (SUMFREEZER <= 0) {
-  //     $http.get('/ledAlertON').success(function (response) {
-  //       console.log(response)
-  //     })
-  //     console.log('<=0')
-  //   }else if (SUMFREEZER > 0) {
-  //     $http.get('/ledAlertOFF').success(function (response) {
-  //       console.log(response)
-  //     })
-  //     console.log('>0')
-  //   }
-  // }
   $scope.order = [{item: 'Coke 220ml'}, {item: 'Milk 220ml'}, {item: 'Water 220ml'}]
   $scope.setupMail = function (M) {
     $http.post('/setupMail', M).success(function (response) {
