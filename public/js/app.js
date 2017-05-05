@@ -5,8 +5,10 @@ angular.module('dragApp', [])
   $scope.freezer = []
   $scope.index = ''
 
+  $scope.x = []
+
   $scope.getData = function () {
-    return $http.get('/api').success(function (response) {
+    $http.get('/api').success(function (response) {
       $scope.drag = response
       // ////// LED Check //////
       $scope.CheckData = []
@@ -15,16 +17,19 @@ angular.module('dragApp', [])
         var now = new Date()
         var datePick = new Date($scope.CheckData[i])
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-        if (SUMDATA <= 0) {
-          $scope.state = 1
-        }if (SUMDATA > 0) {
-          $scope.stood = 1
-        }
+
+        $scope.x[i] = SUMDATA
+        // if (SUMDATA <= 0) {
+        //   $scope.state = 1
+        // }if (SUMDATA > 0) {
+        //   $scope.stood = 1
+        // }
       }
       // ////// LED Check //////
     })
   }
   $scope.getData()
+  console.log($scope.x.length)
   console.log($scope.state, $scope.stood, '5555555')
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
