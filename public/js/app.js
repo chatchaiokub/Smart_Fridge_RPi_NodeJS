@@ -7,7 +7,6 @@ angular.module('dragApp', [])
 
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
-    $scope.state = 0
     $http.get('/api').success(function (response) {
       $scope.drag = response
       // ////// LED Check //////
