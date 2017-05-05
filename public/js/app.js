@@ -5,7 +5,7 @@ angular.module('dragApp', [])
   $scope.freezer = []
   $scope.index = ''
 
-  $scope.getData = function () {
+  var getData = function () {
     console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
       $scope.drag = response
@@ -29,7 +29,7 @@ angular.module('dragApp', [])
     })
     console.log($scope.state, $scope.stood, 'getapi')
   }
-  $scope.getData()
+  getData()
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
     css.position = 'absolute'
