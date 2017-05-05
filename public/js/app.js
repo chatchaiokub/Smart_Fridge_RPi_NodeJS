@@ -17,7 +17,8 @@ angular.module('dragApp', [])
         let datePick = new Date($scope.CheckData[i])
         let SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
-          ++$scope.state
+          console.log('เข้าในนี้ไหม 1')
+          // ++$scope.state
         }
       }
       // ////// LED Check //////
@@ -149,7 +150,8 @@ angular.module('dragApp', [])
         let datePick = new Date($scope.CheckFreezer[i])
         let SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
-          ++$scope.state
+          console.log('เข้าในนี้ไหม 2')
+          // ++$scope.state
         }
       }
       // ////// LED Check //////
@@ -218,15 +220,15 @@ angular.module('dragApp', [])
   }
   $scope.LEDAlert = function () {
     console.log($scope.state, 'this')
-    if ($scope.state === 0) {
-      $http.get('/ledAlertOFF').success(function (response) {
-        console.log(response)
-      })
-    }if ($scope.state !== 0) {
-      $http.get('/ledAlertON').success(function (response) {
-        console.log(response)
-      })
-    }
+    // if ($scope.state === 0) {
+    //   $http.get('/ledAlertOFF').success(function (response) {
+    //     console.log(response)
+    //   })
+    // }if ($scope.state !== 0) {
+    //   $http.get('/ledAlertON').success(function (response) {
+    //     console.log(response)
+    //   })
+    // }
   }
   $scope.LEDAlert()
   // $scope.LEDAlertDATA = function (date) {
