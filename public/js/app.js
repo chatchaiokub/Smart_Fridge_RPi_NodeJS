@@ -5,6 +5,9 @@ angular.module('dragApp', [])
   $scope.freezer = []
   $scope.index = ''
 
+  $scope.state = 0
+  $scope.stood = 0
+
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
@@ -25,7 +28,7 @@ angular.module('dragApp', [])
           console.log($scope.stood, 'stood')
         }
       }
-      console.log($scope.drag, 'gggggggg')
+      console.log($scope.state, $scope.stood, 'gggggggg')
       // ////// LED Check //////
     })
     console.log($scope.state, $scope.stood, 'getapi and return')
