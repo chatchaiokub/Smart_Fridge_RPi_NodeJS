@@ -7,7 +7,6 @@ angular.module('dragApp', [])
 
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
-    var chat = 0
     $http.get('/api').success(function (response) {
       $scope.drag = response
       // ////// LED Check //////
@@ -19,9 +18,7 @@ angular.module('dragApp', [])
         var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 1')
-          chat = 1
-          $scope.boom = chat
-          // $scope.state = 1
+          $scope.state = 1
           console.log($scope.state, 'state')
         }if (SUMDATA > 0) {
           $scope.stood = 1
@@ -30,7 +27,6 @@ angular.module('dragApp', [])
       }
       // ////// LED Check //////
     })
-    console.log($scope.boom, '555555')
     console.log($scope.state, $scope.stood, 'getapi')
   }
   $scope.getData()
