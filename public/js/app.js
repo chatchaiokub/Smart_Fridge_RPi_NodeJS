@@ -1,4 +1,4 @@
-/* global $, angular uploadcare $q*/
+/* global $, angular uploadcare */
 angular.module('dragApp', [])
 .controller('dragCtrl', function ($scope, $http) {
   $scope.drag = []
@@ -31,7 +31,7 @@ angular.module('dragApp', [])
     })
     console.log($scope.state, $scope.stood, 'getapi')
   }
-  $q.$scope.getData()
+  $scope.getData()
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
     css.position = 'absolute'
