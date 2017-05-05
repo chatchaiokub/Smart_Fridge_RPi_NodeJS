@@ -19,8 +19,10 @@ angular.module('dragApp', [])
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 1')
           $scope.state = 1
+          console.log($scope.state, 'state')
         }else {
           $scope.stood = 1
+          console.log($scope.stood, 'stood')
         }
       }
       // ////// LED Check //////
@@ -154,8 +156,10 @@ angular.module('dragApp', [])
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 2')
           $scope.state = 1
+          console.log($scope.state, 'state')
         }else {
           $scope.stood = 1
+          console.log($scope.stood, 'stood')
         }
       }
       // ////// LED Check //////
@@ -233,15 +237,6 @@ angular.module('dragApp', [])
         console.log(response)
       })
     }
-    // if ($scope.state === 0) {
-    //   $http.get('/ledAlertOFF').success(function (response) {
-    //     console.log(response)
-    //   })
-    // }if ($scope.state !== 0) {
-    //   $http.get('/ledAlertON').success(function (response) {
-    //     console.log(response)
-    //   })
-    // }
   }
   $scope.LEDAlert()
   $scope.order = [{item: 'Coke 220ml'}, {item: 'Milk 220ml'}, {item: 'Water 220ml'}]
