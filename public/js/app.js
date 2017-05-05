@@ -5,10 +5,9 @@ angular.module('dragApp', [])
   $scope.freezer = []
   $scope.index = ''
 
-  $scope.a = 0
-  $scope.b = 0
-
   $scope.getData = function () {
+    $scope.a = 0
+    $scope.b = 0
     console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
       $scope.drag = response
