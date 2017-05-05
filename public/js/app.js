@@ -11,7 +11,7 @@ angular.module('dragApp', [])
       $scope.drag = response
       // ////// LED Check //////
       $scope.CheckData = []
-      for (var i = 0; i < $scope.drag.length; i++) {
+      for (var i = 0; i < 1; i++) {
         $scope.CheckData[i] = $scope.drag[i].endDate
         let now = new Date()
         let datePick = new Date($scope.CheckData[i])
@@ -148,7 +148,7 @@ angular.module('dragApp', [])
       $scope.freezer = response
       // ////// LED Check //////
       $scope.CheckFreezer = []
-      for (var i = 0; i < $scope.freezer.length; i++) {
+      for (var i = 0; i < 1; i++) {
         $scope.CheckFreezer[i] = $scope.freezer[i].endDate
         let now = new Date()
         let datePick = new Date($scope.CheckFreezer[i])
