@@ -4,7 +4,6 @@ angular.module('dragApp', [])
   $scope.drag = []
   $scope.freezer = []
   $scope.index = ''
-  $scope.x = []
 
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
