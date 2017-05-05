@@ -7,7 +7,7 @@ angular.module('dragApp', [])
 
   $scope.getData = function () {
     console.log('get ครั้งที่ 1')
-    $http.get('/api').then(function (response) {
+    $http.get('/api').success(function (response) {
       $scope.drag = response
       // ////// LED Check //////
       $scope.CheckData = []
@@ -28,6 +28,8 @@ angular.module('dragApp', [])
         }
       }
       // ////// LED Check //////
+    }).error(function (data, status, headers, config) {
+      console.log('error')
     })
     console.log($scope.state, $scope.stood, 'getapi')
   }
