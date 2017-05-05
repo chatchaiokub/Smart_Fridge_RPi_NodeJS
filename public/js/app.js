@@ -165,7 +165,9 @@ angular.module('dragApp', [])
       // ////// LED Check //////
     })
   }
+  console.log($scope.state, $scope.stood, 'MID')
   $scope.getDataFreezer()
+  console.log($scope.state, $scope.stood, 'FINAL')
   $scope.openFreezer = function () {
     $('#openFreezer').openModal()
   }
