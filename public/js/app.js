@@ -156,10 +156,10 @@ angular.module('dragApp', [])
         if (SUMDATA <= 0) {
           console.log('เข้าในนี้ไหม 2')
           $scope.state = 1
-          console.log($scope.state, 'state')
+          console.log($scope.state, 'state freezer')
         }else {
           $scope.stood = 1
-          console.log($scope.stood, 'stood')
+          console.log($scope.stood, 'stood freezer')
         }
       }
       // ////// LED Check //////
