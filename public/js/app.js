@@ -9,6 +9,8 @@ angular.module('dragApp', [])
     console.log('get ครั้งที่ 1')
     $http.get('/api').success(function (response) {
       $scope.drag = response
+      console.log($scope.drag, 'Hey!')
+      $scope.cal()
       // ////// LED Check //////
       // $scope.CheckData = []
       // for (var i = 0; i < $scope.drag.length; i++) {
@@ -48,7 +50,6 @@ angular.module('dragApp', [])
       }
     }
   }
-  $scope.cal()
   console.log($scope.state, $scope.stood, 'Hey!')
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
