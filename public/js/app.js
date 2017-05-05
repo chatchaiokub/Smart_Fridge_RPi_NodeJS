@@ -23,6 +23,7 @@ angular.module('dragApp', [])
       }
       // ////// LED Check //////
     })
+    return ($scope.state)
   }
   $scope.getData()
   console.log($scope.state, $scope.stood, '5555555')
