@@ -1,0 +1,117 @@
+/*
+  [Drag] Materialize
+  @media only screen and (min-width: 601px) .row .col.m1  Screen size >= 601px is medium
+  @media only screen and (min-width: 993px) .row .col.l1  Screen size >= 993px is large
+  @media only screen and (min-width: 321px) .row .col.s1  iPhone 5,6,6s,7 (320px,360px,375px)
+  @media only screen and (min-width: 415px) .row .col.s1  iPhone 6 Plus,6s Plus (414px)
+  @media only screen and (min-width: 769px) .row .col.m1  All iPad (768px)
+  @media only screen and (min-width: 769px) .row .col.m1  All Samsung Galaxy Tab (800px)
+*/
+html{
+  background-color: black;
+}
+
+@charset "UTF-8";
+
+@font-face {
+  font-family: "untitled-font-1";
+  src:url("../fonts/untitled-font-1.eot");
+  src:url("../fonts/untitled-font-1.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/untitled-font-1.woff") format("woff"),
+    url("../fonts/untitled-font-1.ttf") format("truetype"),
+    url("../fonts/untitled-font-1.svg#untitled-font-1") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "untitled-font-1" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "untitled-font-1" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-camera:before {
+  content: "\43";
+}
+.icon-image:before {
+  content: "\49";
+}
+.icon-bars:before {
+  content: "\42";
+}
+.icon-flip:before {
+  content: "\46";
+}
+.icon-calendar:before {
+  content: "\61";
+}
+.icon-r1:before {
+  content: "\72";
+}
+.icon-r2:before {
+  content: "\65";
+}
+.icon-r3:before {
+  content: "\66";
+}
+
+.icon-camera {
+  font-size: 20px;
+  margin-right:9px;
+  margin-top:3px;
+  color: black;
+}
+.icon-flip {
+  font-size: 22px;
+  margin-right:7px;
+  margin-top:4px;
+  color: black;
+}
+.icon-bars {
+  font-size: 22px;
+  margin-top:4px;
+  color: black;
+}
+.icon-calendar {
+  font-size: 22px;
+  margin-left: 5px;
+}
+.icon-r1 {
+  font-size: 30px;
+  margin-right:3px;
+  margin-top:3px;
+  color: black;
+}
+.icon-r2 {
+  font-size: 30px;
+  margin-right:3.5px;
+  margin-top:3.5px;
+  color: black;
+}
+.icon-r3 {
+  font-size: 30px;
+  margin-right:3px;
+  margin-top:3px;
+  color: #ff8f00;
+}
