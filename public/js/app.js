@@ -20,6 +20,7 @@ angular.module('dragApp', [])
         }if (SUMDATA > 0) {
           $scope.stood = 1
         }
+        console.log(SUMDATA)
         $scope.LEDAlert()
       }
       // ////// LED Check //////
@@ -107,7 +108,7 @@ angular.module('dragApp', [])
     $http.delete('/api/' + $scope.drag[$scope.index]['_id']).then(function (res) {
       $scope.drag.splice($scope.index, 1)
       console.log(res.data)
-      $scope.getData();
+      $scope.getData()
     })
   }
   $scope.countExpireDate = function (date) {
