@@ -6,22 +6,29 @@ angular.module('dragApp', [])
   $scope.index = ''
 
   $scope.getData = function () {
+    var result = [];
     $http.get('/api').success(function (response) {
-      $scope.state = 0
+      result = response;
       $scope.drag = response
-      // ////// LED Check //////
-      $scope.CheckData = []
-      for (var i = 0; i < response.length; i++) {
-        $scope.CheckData[i] = response[i].endDate
-        var now = new Date()
-        var datePick = new Date($scope.CheckData[i])
-        var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-        if (SUMDATA <= 0) {
-          $scope.state = 1
+      $http.get('/freezer').success(function (response2) {
+        result.push.apply(result,response2)
+        $scope.freezer = response2
+
+        $scope.state = 0
+        // ////// LED Check //////
+        $scope.CheckFreezer = []
+        for (var i = 0; i < result.length; i++) {
+          $scope.CheckFreezer[i] = result[i].endDate
+          var now = new Date()
+          var datePick = new Date($scope.CheckFreezer[i])
+          var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
+          if (SUMDATA <= 0) {
+            $scope.state = 1
+          }
         }
-      }
-      $scope.LEDAlert()
-      // ////// LED Check //////
+        $scope.LEDAlert()
+        // ////// LED Check //////
+      })
     })
   }
 
@@ -149,26 +156,26 @@ angular.module('dragApp', [])
     }
   })
   // ///////////////////////////////////////////////////////
-  $scope.getDataFreezer = function () {
-    $http.get('/freezer').success(function (response) {
-      $scope.state = 0
-      $scope.freezer = response
-      // ////// LED Check //////
-      $scope.CheckFreezer = []
-      for (var i = 0; i < response.length; i++) {
-        $scope.CheckFreezer[i] = response[i].endDate
-        var now = new Date()
-        var datePick = new Date($scope.CheckFreezer[i])
-        var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-        if (SUMDATA <= 0) {
-          $scope.state = 1
-        }
-      }
-      console.log($scope.state)
-      // ////// LED Check //////
-    })
-  }
-  $scope.getDataFreezer()
+  // $scope.getDataFreezer = function () {
+  //   $http.get('/freezer').success(function (response) {
+  //     $scope.state = 0
+  //     $scope.freezer = response
+  //     // ////// LED Check //////
+  //     $scope.CheckFreezer = []
+  //     for (var i = 0; i < response.length; i++) {
+  //       $scope.CheckFreezer[i] = response[i].endDate
+  //       var now = new Date()
+  //       var datePick = new Date($scope.CheckFreezer[i])
+  //       var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
+  //       if (SUMDATA <= 0) {
+  //         $scope.state = 1
+  //       }
+  //     }
+  //     console.log($scope.state)
+  //     // ////// LED Check //////
+  //   })
+  // }
+  //$scope.getDataFreezer()
   $scope.openFreezer = function () {
     $('#openFreezer').openModal()
   }
@@ -184,7 +191,7 @@ angular.module('dragApp', [])
       $scope.TFREEZER = ''
       $scope.DFREEZER = ''
       $scope.url = ''
-      $scope.getDataFreezer()
+      $scope.getData()
     }).error(function (data, status, headers, config) {
       console.log('error')
     })
@@ -211,14 +218,14 @@ angular.module('dragApp', [])
     $http.put('/freezer/' + $scope.freezer[$scope.index]['_id'], $scope.freezer[$scope.index]).then(function (res) {
       console.log(res.data)
       $scope.url = ''
-      $scope.getDataFreezer()
+      $scope.getData()
     })
   }
   $scope.deleteFreezer = function (index) {
     $http.delete('/freezer/' + $scope.freezer[$scope.index]['_id']).then(function (res) {
       $scope.freezer.splice($scope.index, 1)
       console.log(res.data)
-      $scope.getDataFreezer();
+      $scope.getData()
       // location.reload()
     })
   }
