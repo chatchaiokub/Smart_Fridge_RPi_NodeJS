@@ -9,23 +9,22 @@ angular.module('dragApp', [])
     $http.get('/api').success(function (response) {
       $scope.drag = response
       // ////// LED Check //////
-      $scope.CheckData = []
-      for (var i = 0; i < response.length; i++) {
-        $scope.CheckData[i] = response[i].endDate
-        var now = new Date()
-        var datePick = new Date($scope.CheckData[i])
-        var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-        if (SUMDATA <= 0) {
-          $scope.state = 1
-        }if (SUMDATA > 0) {
-          $scope.stood = 1
-        }
-      }
+      // $scope.CheckData = []
+      // for (var i = 0; i < response.length; i++) {
+      //   $scope.CheckData[i] = response[i].endDate
+      //   var now = new Date()
+      //   var datePick = new Date($scope.CheckData[i])
+      //   var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
+      //   if (SUMDATA <= 0) {
+      //     $scope.state = 1
+      //   }if (SUMDATA > 0) {
+      //     $scope.stood = 1
+      //   }
+      // }
       // ////// LED Check //////
     })
   }
   $scope.getData()
-  console.log($scope.state, $scope.stood, '5555555')
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
     css.position = 'absolute'
@@ -143,18 +142,18 @@ angular.module('dragApp', [])
     $http.get('/freezer').success(function (response) {
       $scope.freezer = response
       // ////// LED Check //////
-      $scope.CheckFreezer = []
-      for (var i = 0; i < response.length; i++) {
-        $scope.CheckFreezer[i] = response[i].endDate
-        var now = new Date()
-        var datePick = new Date($scope.CheckFreezer[i])
-        var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-        if (SUMDATA <= 0) {
-          $scope.state = 1
-        }if (SUMDATA > 0) {
-          $scope.stood = 1
-        }
-      }
+      // $scope.CheckFreezer = []
+      // for (var i = 0; i < response.length; i++) {
+      //   $scope.CheckFreezer[i] = response[i].endDate
+      //   var now = new Date()
+      //   var datePick = new Date($scope.CheckFreezer[i])
+      //   var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
+      //   if (SUMDATA <= 0) {
+      //     $scope.state = 1
+      //   }if (SUMDATA > 0) {
+      //     $scope.stood = 1
+      //   }
+      // }
       // ////// LED Check //////
     })
   }
@@ -220,15 +219,18 @@ angular.module('dragApp', [])
     }
   }
   $scope.LEDAlert = function () {
-    if ($scope.state === 1 && $scope.stood === 1) {
-      $http.get('/ledAlertON').success(function (response) {
-        console.log(response)
-      })
-    }else {
-      $http.get('/ledAlertOFF').success(function (response) {
-        console.log(response)
-      })
-    }
+    // if ($scope.state === 1 && $scope.stood === 1) {
+    //   $http.get('/ledAlertON').success(function (response) {
+    //     console.log(response)
+    //   })
+    // }else {
+    //   $http.get('/ledAlertOFF').success(function (response) {
+    //     console.log(response)
+    //   })
+    // }
+    $http.get('/ledAlertON').success(function (response) {
+      console.log(response)
+    })
   }
   $scope.LEDAlert()
   $scope.order = [{item: 'Coke 220ml'}, {item: 'Milk 220ml'}, {item: 'Water 220ml'}]
