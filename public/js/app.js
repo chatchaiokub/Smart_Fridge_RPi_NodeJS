@@ -1,31 +1,31 @@
 /* global $, angular uploadcare */
 angular.module('dragApp', [])
-.controller('dragCtrl', function ($scope, $http, $timeout) {
+.controller('dragCtrl', function ($scope, $http) {
   $scope.drag = []
   $scope.freezer = []
   $scope.index = ''
 
   $scope.getData = function () {
-    var result = [];
+    var result = []
     $http.get('/api').success(function (response) {
       for (var i = 0; i < response.length; i++) {
-         result.push(response[i])
-       }
+        result.push(response[i])
+      }
       $scope.drag = response
       $http.get('/freezer').success(function (response2) {
         for (var i = 0; i < response2.length; i++) {
-           result.push(response2[i])
-         }
+          result.push(response2[i])
+        }
         console.log(result)
         $scope.freezer = response2
 
         $scope.state = 0
         // ////// LED Check //////
         $scope.CheckFreezer = []
-        for (var i = 0; i < result.length; i++) {
-          $scope.CheckFreezer[i] = result[i].endDate
+        for (var j = 0; j < result.length; j++) {
+          $scope.CheckFreezer[j] = result[j].endDate
           var now = new Date()
-          var datePick = new Date($scope.CheckFreezer[i])
+          var datePick = new Date($scope.CheckFreezer[j])
           var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
           if (SUMDATA <= 0) {
             $scope.state = 1
@@ -36,12 +36,6 @@ angular.module('dragApp', [])
       })
     })
   }
-
-  // $timeout(function(){
-  //   console.log($scope.state)
-  //   console.log($scope.stood)
-  // }, 3000)
-
 
   $scope.getData()
   $scope.positionDrag = function (index) {
@@ -180,7 +174,7 @@ angular.module('dragApp', [])
   //     // ////// LED Check //////
   //   })
   // }
-  //$scope.getDataFreezer()
+  // $scope.getDataFreezer()
   $scope.openFreezer = function () {
     $('#openFreezer').openModal()
   }
@@ -255,9 +249,6 @@ angular.module('dragApp', [])
         console.log(response)
       })
     }
-    // $http.get('/ledAlertON').success(function (response) {
-    //   console.log(response)
-    // })
   }
 
   $scope.order = [{item: 'Coke 220ml'}, {item: 'Milk 220ml'}, {item: 'Water 220ml'}]
