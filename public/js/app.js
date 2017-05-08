@@ -7,6 +7,7 @@ angular.module('dragApp', [])
 
   $scope.getData = function () {
     $http.get('/api').success(function (response) {
+      $scope.state = $scope.stood = 0
       $scope.drag = response
       // ////// LED Check //////
       $scope.CheckData = []
@@ -20,9 +21,8 @@ angular.module('dragApp', [])
         }if (SUMDATA > 0) {
           $scope.stood = 1
         }
-        console.log(SUMDATA)
-        $scope.LEDAlert()
       }
+      $scope.LEDAlert()
       // ////// LED Check //////
     })
   }
