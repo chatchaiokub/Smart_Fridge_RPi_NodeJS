@@ -1,6 +1,6 @@
 /* global $, angular uploadcare */
 angular.module('dragApp', [])
-.controller('dragCtrl', function ($scope, $http) {
+.controller('dragCtrl', function ($scope, $http, $timeout) {
   $scope.drag = []
   $scope.freezer = []
   $scope.index = ''
@@ -9,21 +9,27 @@ angular.module('dragApp', [])
     $http.get('/api').success(function (response) {
       $scope.drag = response
       // ////// LED Check //////
-      // $scope.CheckData = []
-      // for (var i = 0; i < response.length; i++) {
-      //   $scope.CheckData[i] = response[i].endDate
-      //   var now = new Date()
-      //   var datePick = new Date($scope.CheckData[i])
-      //   var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-      //   if (SUMDATA <= 0) {
-      //     $scope.state = 1
-      //   }if (SUMDATA > 0) {
-      //     $scope.stood = 1
-      //   }
-      // }
+      $scope.CheckData = []
+      for (var i = 0; i < response.length; i++) {
+        $scope.CheckData[i] = response[i].endDate
+        var now = new Date()
+        var datePick = new Date($scope.CheckData[i])
+        var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
+        if (SUMDATA <= 0) {
+          $scope.state = 1
+        }if (SUMDATA > 0) {
+          $scope.stood = 1
+        }
+      }
       // ////// LED Check //////
     })
   }
+
+  $setTimeout(function () {
+    console.log($scope.state)
+    console.log($scope.stood)
+  }, 5000)
+
   $scope.getData()
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
@@ -142,18 +148,18 @@ angular.module('dragApp', [])
     $http.get('/freezer').success(function (response) {
       $scope.freezer = response
       // ////// LED Check //////
-      // $scope.CheckFreezer = []
-      // for (var i = 0; i < response.length; i++) {
-      //   $scope.CheckFreezer[i] = response[i].endDate
-      //   var now = new Date()
-      //   var datePick = new Date($scope.CheckFreezer[i])
-      //   var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-      //   if (SUMDATA <= 0) {
-      //     $scope.state = 1
-      //   }if (SUMDATA > 0) {
-      //     $scope.stood = 1
-      //   }
-      // }
+      $scope.CheckFreezer = []
+      for (var i = 0; i < response.length; i++) {
+        $scope.CheckFreezer[i] = response[i].endDate
+        var now = new Date()
+        var datePick = new Date($scope.CheckFreezer[i])
+        var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
+        if (SUMDATA <= 0) {
+          $scope.state = 1
+        }if (SUMDATA > 0) {
+          $scope.stood = 1
+        }
+      }
       // ////// LED Check //////
     })
   }
