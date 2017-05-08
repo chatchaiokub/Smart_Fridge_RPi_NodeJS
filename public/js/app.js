@@ -11,7 +11,8 @@ angular.module('dragApp', [])
       result = response;
       $scope.drag = response
       $http.get('/freezer').success(function (response2) {
-        // result.push.apply(result,response2)
+         result.concat(response2)
+         console.log(result)
         $scope.freezer = response2
 
         $scope.state = 0
@@ -241,7 +242,6 @@ angular.module('dragApp', [])
   }
   $scope.LEDAlert = function () {
     console.log($scope.state)
-    console.log($scope.stood)
     if ($scope.state === 1) {
       $http.get('/ledAlertON').success(function (response) {
         console.log(response)
