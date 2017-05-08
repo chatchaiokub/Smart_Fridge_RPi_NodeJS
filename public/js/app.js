@@ -8,12 +8,13 @@ angular.module('dragApp', [])
   $scope.getData = function () {
     var result = [];
     $http.get('/api').success(function (response) {
-      result = response;
+      for (var i = 0; i < response.length; i++) {
+         result.push(response[i])
+       }
       $scope.drag = response
       $http.get('/freezer').success(function (response2) {
         for (var i = 0; i < response2.length; i++) {
-           //result.push(response2[i])
-           console.log(response2[i])
+           result.push(response2[i])
          }
         console.log(result)
         $scope.freezer = response2
