@@ -11,9 +11,9 @@ angular.module('dragApp', [])
       result = response;
       $scope.drag = response
       $http.get('/freezer').success(function (response2) {
-        angular.forEach(response2, function(value,key){
-          result.push(value)
-        })
+        for (var i = 0; i < response2.length; i++) {
+          result.push(response2[i])
+        }
         console.log(result)
         $scope.freezer = response2
 
