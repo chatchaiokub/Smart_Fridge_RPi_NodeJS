@@ -167,8 +167,8 @@ angular.module('dragApp', [])
         }if (SUMDATA > 0) {
           $scope.stood = 1
         }
-        $scope.LEDAlert()
       }
+      $scope.LEDAlert()
       // ////// LED Check //////
     })
   }
