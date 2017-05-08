@@ -20,15 +20,16 @@ angular.module('dragApp', [])
         }if (SUMDATA > 0) {
           $scope.stood = 1
         }
+        $scope.LEDAlert()
       }
       // ////// LED Check //////
     })
   }
 
-  $timeout(function(){
-    console.log($scope.state)
-    console.log($scope.stood)
-  }, 3000)
+  // $timeout(function(){
+  //   console.log($scope.state)
+  //   console.log($scope.stood)
+  // }, 3000)
 
 
   $scope.getData()
@@ -160,6 +161,7 @@ angular.module('dragApp', [])
         }if (SUMDATA > 0) {
           $scope.stood = 1
         }
+        $scope.LEDAlert()
       }
       // ////// LED Check //////
     })
@@ -226,20 +228,20 @@ angular.module('dragApp', [])
     }
   }
   $scope.LEDAlert = function () {
-    // if ($scope.state === 1 && $scope.stood === 1) {
-    //   $http.get('/ledAlertON').success(function (response) {
-    //     console.log(response)
-    //   })
-    // }else {
-    //   $http.get('/ledAlertOFF').success(function (response) {
-    //     console.log(response)
-    //   })
-    // }
-    $http.get('/ledAlertON').success(function (response) {
-      console.log(response)
-    })
+    if ($scope.state === 1 && $scope.stood === 1) {
+      $http.get('/ledAlertON').success(function (response) {
+        console.log(response)
+      })
+    }else {
+      $http.get('/ledAlertOFF').success(function (response) {
+        console.log(response)
+      })
+    }
+    // $http.get('/ledAlertON').success(function (response) {
+    //   console.log(response)
+    // })
   }
-  $scope.LEDAlert()
+
   $scope.order = [{item: 'Coke 220ml'}, {item: 'Milk 220ml'}, {item: 'Water 220ml'}]
   $scope.setupMail = function (M) {
     $http.post('/setupMail', M).success(function (response) {
