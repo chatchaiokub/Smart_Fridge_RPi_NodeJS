@@ -102,6 +102,7 @@ angular.module('dragApp', [])
     }
     $http.put('/api/' + $scope.drag[$scope.index]['_id'], $scope.drag[$scope.index]).then(function (res) {
       console.log(res.data)
+      $scope.getData()
     })
   }
   $scope.deleteDrag = function (index) {
@@ -152,6 +153,7 @@ angular.module('dragApp', [])
   // ///////////////////////////////////////////////////////
   $scope.getDataFreezer = function () {
     $http.get('/freezer').success(function (response) {
+      $scope.state = $scope.stood = 0
       $scope.freezer = response
       // ////// LED Check //////
       $scope.CheckFreezer = []
@@ -213,6 +215,7 @@ angular.module('dragApp', [])
     $http.put('/freezer/' + $scope.freezer[$scope.index]['_id'], $scope.freezer[$scope.index]).then(function (res) {
       console.log(res.data)
       $scope.url = ''
+      $scope.getDataFreezer()
     })
   }
   $scope.deleteFreezer = function (index) {
