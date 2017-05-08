@@ -168,7 +168,9 @@ angular.module('dragApp', [])
           $scope.stood = 1
         }
       }
-      $scope.LEDAlert()
+      console.log()
+      console.log($scope.state)
+      console.log($scope.stood)
       // ////// LED Check //////
     })
   }
