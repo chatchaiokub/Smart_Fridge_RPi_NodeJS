@@ -11,7 +11,7 @@ angular.module('dragApp', [])
       result = response;
       $scope.drag = response
       $http.get('/freezer').success(function (response2) {
-        result.push.apply(result,response2)
+        // result.push.apply(result,response2)
         $scope.freezer = response2
 
         $scope.state = 0
