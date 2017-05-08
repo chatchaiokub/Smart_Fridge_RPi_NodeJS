@@ -25,10 +25,11 @@ angular.module('dragApp', [])
     })
   }
 
-  $setTimeout(function () {
+  $timeout(function(){
     console.log($scope.state)
     console.log($scope.stood)
-  }, 5000)
+  }, 3000)
+
 
   $scope.getData()
   $scope.positionDrag = function (index) {
