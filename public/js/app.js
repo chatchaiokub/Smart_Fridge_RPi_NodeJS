@@ -7,36 +7,32 @@ angular.module('dragApp', [])
 
   $scope.getData = function () {
     var result = []
-    $http.get('/api').success(function (response) {
-      for (var i = 0; i < response.length; i++) {
-        result.push(response[i])
+    $http.get('/api').success(function (responseDATA) {
+      $scope.drag = responseDATA
+      for (var i = 0; i < responseDATA.length; i++) {
+        result.push(responseDATA[i])
       }
-      $scope.drag = response
-      $http.get('/freezer').success(function (response2) {
-        for (var i = 0; i < response2.length; i++) {
-          result.push(response2[i])
+      $http.get('/freezer').success(function (responseFREEZER) {
+        $scope.freezer = responseFREEZER
+        for (var i = 0; i < responseFREEZER.length; i++) {
+          result.push(responseFREEZER[i])
         }
-        console.log(result)
-        $scope.freezer = response2
 
         $scope.state = 0
-        // ////// LED Check //////
-        $scope.CheckFreezer = []
+        $scope.Check = []
         for (var j = 0; j < result.length; j++) {
-          $scope.CheckFreezer[j] = result[j].endDate
+          $scope.Check[j] = result[j].endDate
           var now = new Date()
-          var datePick = new Date($scope.CheckFreezer[j])
+          var datePick = new Date($scope.Check[j])
           var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
           if (SUMDATA <= 0) {
             $scope.state = 1
           }
         }
         $scope.LEDAlert()
-        // ////// LED Check //////
       })
     })
   }
-
   $scope.getData()
   $scope.positionDrag = function (index) {
     var css = $('#' + index).position()
@@ -46,7 +42,6 @@ angular.module('dragApp', [])
       console.log(res.data)
     })
   }
-
   $scope.init = function () {
     $scope.drag.forEach(function (item) {
       $('#' + item.ArrDrag).draggable()
@@ -225,7 +220,6 @@ angular.module('dragApp', [])
       $scope.freezer.splice($scope.index, 1)
       console.log(res.data)
       $scope.getData()
-      // location.reload()
     })
   }
   $scope.countExpireFreezer = function (date) {
@@ -250,7 +244,6 @@ angular.module('dragApp', [])
       })
     }
   }
-
   $scope.order = [{item: 'Coke 220ml'}, {item: 'Milk 220ml'}, {item: 'Water 220ml'}]
   $scope.setupMail = function (M) {
     $http.post('/setupMail', M).success(function (response) {
@@ -272,7 +265,6 @@ angular.module('dragApp', [])
       console.log('error')
     })
   }
-
   // Flip FrontCamera/BackCamera /////////////////////
   $scope.flipStatus = false
   $scope.flip = function () {
@@ -284,7 +276,6 @@ angular.module('dragApp', [])
       console.log($scope.flipStatus)
     }
   }
-
   // Routing tabList tabFreezer tabTray ////////////
   $scope.tabList = true
   $scope.tabFreezer = false
