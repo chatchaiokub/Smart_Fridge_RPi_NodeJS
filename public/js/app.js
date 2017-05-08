@@ -54,6 +54,7 @@ angular.module('dragApp', [])
     var dataForPush = {things: '', startDate: new Date(), endDate: endDate, days: day, ArrDrag: ArrDrag, css: {top: 200, left: 250, position: 'absolute'}}
     $http.post('/api', dataForPush).success(function (response) {
       $scope.drag.push(response)
+      $scope.getData()
     }).error(function (data, status, headers, config) {
       console.log('error')
     })
@@ -72,6 +73,7 @@ angular.module('dragApp', [])
       $scope.drag.push(response)
       $scope.THING = ''
       $scope.DAY = ''
+      $scope.getData()
     }).error(function (data, status, headers, config) {
       console.log('error')
     })
@@ -105,6 +107,7 @@ angular.module('dragApp', [])
     $http.delete('/api/' + $scope.drag[$scope.index]['_id']).then(function (res) {
       $scope.drag.splice($scope.index, 1)
       console.log(res.data)
+      $scope.getData();
     })
   }
   $scope.countExpireDate = function (date) {
@@ -182,6 +185,7 @@ angular.module('dragApp', [])
       $scope.TFREEZER = ''
       $scope.DFREEZER = ''
       $scope.url = ''
+      $scope.getDataFreezer()
     }).error(function (data, status, headers, config) {
       console.log('error')
     })
@@ -214,6 +218,7 @@ angular.module('dragApp', [])
     $http.delete('/freezer/' + $scope.freezer[$scope.index]['_id']).then(function (res) {
       $scope.freezer.splice($scope.index, 1)
       console.log(res.data)
+      $scope.getDataFreezer();
       // location.reload()
     })
   }
