@@ -45,6 +45,8 @@ while True:
    os.system ("fswebcam -d /dev/video1 -r 1280x780 --no-banner ./public/Front2.jpg")
    time.sleep(3)
    off()
+   GPIO.setup(22, GPIO.OUT)
+   GPIO.output(22,GPIO.LOW)
    z=1
   else:
    off()
@@ -53,6 +55,8 @@ while True:
    z = 0 
    time.sleep(2)  
    os.system ("fswebcam -d /dev/video2 -r 1280x780 --no-banner ./public/Back.jpg")
+   GPIO.setup(22, GPIO.OUT)
+   GPIO.output(22,GPIO.HIGH)	#alert led when don't close the door
   else:
    off()
 
