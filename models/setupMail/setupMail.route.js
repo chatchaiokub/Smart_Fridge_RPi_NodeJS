@@ -60,5 +60,16 @@
   router.get('/dataEgg', function (req, res) {
     res.send(pack)
   })
+
+  var PACK = {}
+  router.post('/dataDrink', function (req, res) {
+    console.log(req.body)
+    PACK = req.body.drink
+    res.send(req.body.drink)
+  })
+  router.get('/dataDrink', function (req, res) {
+    res.send(PACK)
+  })
+
   module.exports = router
 })()

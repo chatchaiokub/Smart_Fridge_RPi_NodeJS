@@ -246,10 +246,16 @@ angular.module('dragApp', [])
   }
   setInterval(() => {
     $scope.calEgg()
+    $scope.calDrink()
   }, 1000)
   $scope.calEgg = function () {
     $http.get('/dataEgg').then(function (response) {
       $scope.pack = response.data
+    })
+  }
+  $scope.calDrink = function () {
+    $http.get('/dataDrink').then(function (response) {
+      $scope.PACK = response.data
     })
   }
   $scope.order = [{item: 'Coke 220ml'}, {item: 'Milk 220ml'}, {item: 'Water 220ml'}]
