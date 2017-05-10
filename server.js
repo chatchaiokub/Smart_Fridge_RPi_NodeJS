@@ -33,9 +33,14 @@ app.get('/ledAlertOFF', function (req, res) {
     else res.send({message: 'done'})
   })
 })
+var pack = {}
 app.post('/dataegg', function (req, res) {
- console.log(req.body)
- res.send(req.body)
+  console.log(req.body)
+  pack = req.body
+  res.send(req.body)
+})
+app.get('/dataegg', function (req, res) {
+  res.send(pack)
 })
 
 app.listen(3000)

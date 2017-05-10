@@ -244,6 +244,12 @@ angular.module('dragApp', [])
       })
     }
   }
+  $scope.calEgg = function () {
+    $http.get('/dataegg').then(function (response) {
+      $scope.pack = response.data
+    })
+  }
+  $scope.calEgg()
   $scope.order = [{item: 'Coke 220ml'}, {item: 'Milk 220ml'}, {item: 'Water 220ml'}]
   $scope.setupMail = function (M) {
     $http.post('/setupMail', M).success(function (response) {
