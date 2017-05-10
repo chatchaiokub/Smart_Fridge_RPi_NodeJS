@@ -25,7 +25,6 @@ def sendData(data):
 	url = 'http://localhost:3000/dataegg'
        	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 	payload = {'egg': data}
-	#requests.post("http://httpbin.org/post", data=payload)
         response = requests.post(url,data=payload)
 
 check = 0
@@ -39,7 +38,12 @@ while True:
     	if val >= 1006:
 		print ("No",val)
 		check = 0	
-		
+		if (check == 1):
+			check = 0
+			sendData(0)
+		elif (check == 0):
+			check = 0
+
     	elif val < 1005 and val >= 980:
 		print ("1 egg",val)
 		
