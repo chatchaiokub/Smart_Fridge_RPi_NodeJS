@@ -27,7 +27,7 @@ def sendData(data):
 	payload = {'egg': data}
         response = requests.post(url,data=payload)
 
-check = 0
+check = -1
 
 while True:
 
@@ -43,7 +43,9 @@ while True:
 			sendData(0)
 		elif (check == 0):
 			check = 0
-
+		elif (check == -1):
+			check = 0
+			sendData(0)
     	elif val < 1005 and val >= 980:
 		print ("1 egg",val)
 		
