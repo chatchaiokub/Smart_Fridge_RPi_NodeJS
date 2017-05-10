@@ -14,6 +14,7 @@ mongoose.connect('mongodb://localhost/smart-fridge')
 
 app.use(cors())
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('public'))
 app.use('/', snap)
 app.use('/', db)
@@ -31,6 +32,10 @@ app.get('/ledAlertOFF', function (req, res) {
     if (err) { res.send(err) }
     else res.send({message: 'done'})
   })
+})
+app.post('/dataegg', function (req, res) {
+ console.log(req.body)
+ res.send(req.body)
 })
 
 app.listen(3000)
