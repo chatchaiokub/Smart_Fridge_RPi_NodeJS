@@ -5,7 +5,7 @@ var snap = require('./models/snap/snap.route.js')
 var db = require('./models/db/db.route.js')
 var freezer = require('./models/freezer/freezer.route.js')
 var setupMail = require('./models/setupMail/setupMail.route.js')
-var PythonShell = require('python-shell')
+var ledAlert = require('./models/ledAlert/ledAlert.route.js')
 var cors = require('cors')
 var app = express()
 
@@ -20,28 +20,7 @@ app.use('/', snap)
 app.use('/', db)
 app.use('/', freezer)
 app.use('/', setupMail)
-
-app.get('/ledAlertON', function (req, res) {
-  PythonShell.run('ledOn.py', function (err) {
-    if (err) { res.send(err) }
-    else res.send({message: 'done'})
-  })
-})
-app.get('/ledAlertOFF', function (req, res) {
-  PythonShell.run('ledOff.py', function (err) {
-    if (err) { res.send(err) }
-    else res.send({message: 'done'})
-  })
-})
-var pack = {}
-app.post('/dataegg', function (req, res) {
-  console.log(req.body)
-  pack = req.body.egg
-  res.send(req.body.egg)
-})
-app.get('/dataegg', function (req, res) {
-  res.send(pack)
-})
+app.use('/', ledAlert)
 
 app.listen(3000)
 console.log('running on port 3000.')

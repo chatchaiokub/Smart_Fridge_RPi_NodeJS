@@ -11,7 +11,7 @@
     res.send('success')
   })
 
-  router.get('/egg', function (req, res) {
+  router.get('/setupEgg', function (req, res) {
     var api_key = 'key-087ab4313404c2df9dab775cb3d0ecb9'
     var domain = 'sandboxbbf5cfe12b8741589ab71636de046655.mailgun.org'
     var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain})
@@ -31,7 +31,7 @@
     })
   })
 
-  router.get('/drink', function (req, res) {
+  router.get('/setupDrink', function (req, res) {
     var api_key = 'key-087ab4313404c2df9dab775cb3d0ecb9'
     var domain = 'sandboxbbf5cfe12b8741589ab71636de046655.mailgun.org'
     var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain})
@@ -49,6 +49,16 @@
         res.send('Mail not Send')
       }
     })
+  })
+
+  var pack = {}
+  router.post('/dataEgg', function (req, res) {
+    console.log(req.body)
+    pack = req.body.egg
+    res.send(req.body.egg)
+  })
+  router.get('/dataEgg', function (req, res) {
+    res.send(pack)
   })
   module.exports = router
 })()

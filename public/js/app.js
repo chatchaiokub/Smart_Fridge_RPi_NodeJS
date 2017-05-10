@@ -248,7 +248,7 @@ angular.module('dragApp', [])
     $scope.calEgg()
   }, 1000)
   $scope.calEgg = function () {
-    $http.get('/dataegg').then(function (response) {
+    $http.get('/dataEgg').then(function (response) {
       $scope.pack = response.data
     })
   }
