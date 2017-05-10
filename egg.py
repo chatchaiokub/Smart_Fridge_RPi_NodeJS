@@ -36,8 +36,7 @@ while True:
 
 
     	if val >= 1006:
-		print ("No",val)
-		check = 0	
+		print ("No",val)	
 		if (check == 1):
 			check = 0
 			sendData(0)
