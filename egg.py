@@ -90,6 +90,9 @@ while True:
                 else:
                         check = 4
                         sendData(4)
+			url = 'http://localhost:3000/setupEgg'
+			headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+			response = requests.get(url,headers=headers)
 
 	elif val <= 979 and val >= 955:
                 print ("5 egg",val)
