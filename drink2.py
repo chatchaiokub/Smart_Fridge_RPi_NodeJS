@@ -1,5 +1,6 @@
 import spidev
 import time
+import requests
 
 analog_ch = 1
 
@@ -20,11 +21,11 @@ def sendDataDRINK(data):
         payload = {'drink': data}
         response = requests.post(url,data=payload)
 
-CHECK = -1
+check = -1
 
 while True:
-	value = readADC(analog_ch)
-	print("analog_ch1=",value)
+	val = readADC(analog_ch)
+	print("analog_ch1=",val)
 	time.sleep(0.3)
 
 	if val >= 1006:
@@ -59,9 +60,9 @@ while True:
                 else:
                         check = 2
                         sendDataDRINK(2)
-						url = 'http://localhost:3000/setupDrink'
-						headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-						response = requests.get(url,headers=headers)
+			url = 'http://localhost:3000/setupDrink'
+			headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+			response = requests.get(url,headers=headers)
 
 	elif val <= 954 and val >= 935:
                	print ("3 ",val)

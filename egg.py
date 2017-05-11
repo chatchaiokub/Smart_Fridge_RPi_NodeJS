@@ -36,7 +36,7 @@ while True:
 	time.sleep(0.5)
 
 
-    	if val >= 1006:
+    	if val > 1020:
 		print ("No",val)
 		if (check == 1):
 			check = 0
@@ -47,7 +47,7 @@ while True:
 			check = 0
 			sendDataEGG(0)
 
-    	elif val < 1005 and val >= 980:
+    	elif val <= 1020 and val >= 1003:
 		print ("1 egg",val)
 		if (check == 0):
 			check = 1
@@ -58,7 +58,7 @@ while True:
                         check = 1
                         sendDataEGG(1)
 
-    	elif val <= 979 and val >= 955:
+    	elif val <= 1004 and val >= 986:
         	print ("2 egg",val)
 		if (check == 1):
                         check = 2
@@ -69,7 +69,7 @@ while True:
 			check = 2
 			sendDataEGG(2)
 
-	elif val <= 954 and val >= 935:
+	elif val <= 985 and val >= 968:
                print ("3 egg",val)
                if (check == 2):
                         check = 3
@@ -80,7 +80,7 @@ while True:
 			check = 3
 			sendDataEGG(3)
 
-	elif val <= 979 and val >= 955:
+	elif val <= 967 and val >= 950:
                 print ("4 egg",val)
 
                 if (check == 3):
@@ -95,7 +95,7 @@ while True:
 			headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 			response = requests.get(url,headers=headers)
 
-	elif val <= 979 and val >= 955:
+	elif val <= 949 and val >= 932:
                 print ("5 egg",val)
 
                 if (check == 4):
@@ -107,7 +107,7 @@ while True:
                         check = 5
                         sendDataEGG(5)
 
-	elif val <= 979 and val >= 955:
+	elif val <= 931 and val >= 914:
                 print ("6 egg",val)
 
                 if (check == 5):
@@ -119,7 +119,7 @@ while True:
                         check = 6
                         sendDataEGG(6)
 
-	elif val <= 979 and val >= 955:
+	elif val <= 913 and val >= 896:
                 print ("7 egg",val)
 
                 if (check == 6):
@@ -131,7 +131,7 @@ while True:
                         check = 7
                         sendDataEGG(7)
 
-	elif val <= 979 and val >= 955:
+	elif val <= 895 and val >= 878:
                 print ("8 egg",val)
 
                 if (check == 7):
@@ -143,7 +143,7 @@ while True:
                         check = 8
                         sendDataEGG(8)
 
-	elif val <= 979 and val >= 955:
+	elif val <= 877 and val >= 860:
                 print ("9 egg",val)
 
                 if (check == 8):
@@ -155,7 +155,7 @@ while True:
                         check = 9
                         sendDataEGG(9)
 
-	elif val <= 979 and val >= 955:
+	elif val <= 859 and val >= 842:
                 print ("10 egg",val)
 
                 if (check == 9):
