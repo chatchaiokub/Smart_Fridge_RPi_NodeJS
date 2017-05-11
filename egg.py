@@ -27,15 +27,8 @@ def sendDataEGG(data):
 	payload = {'egg': data}
         response = requests.post(url,data=payload)
 
-#def sendDataDRINK(data):
-#        print ("Sending..... ",data)
-#        url = 'http://localhost:3000/dataDrink'
-#        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-#        payload = {'drink': data}
-#        response = requests.post(url,data=payload)
-
 check = -1
-#CHECK = -1
+
 
 while True:
 
