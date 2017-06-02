@@ -4101,6 +4101,7 @@ input[type=range] + .thumb {
     width: 320px;
   	height: 260px;
   	background: #2f2f2f;
+    border-radius: 2%;
     padding-left:5px;
     padding-top:5px;
   	float: inherit;
@@ -4147,6 +4148,7 @@ input[type=range] + .thumb {
     width: 320px;
   	height: 260px;
   	background: #2f2f2f;
+    border-radius: 2%;
     padding-left:5px;
     padding-top:5px;
   	float: inherit;
@@ -4161,6 +4163,7 @@ input[type=range] + .thumb {
     width: 345px;
   	height: 270px;
   	background: #2f2f2f;
+    border-radius: 2%;
     padding-left:9px;
     padding-top:6px;
   	float: inherit;
@@ -4174,6 +4177,7 @@ input[type=range] + .thumb {
     width: 380px;
   	height: 300px;
   	background: #2f2f2f;
+    border-radius: 2%;
     padding-left:9px;
     padding-top:6px;
   	float: inherit;
@@ -4236,6 +4240,7 @@ input[type=range] + .thumb {
     width: 402px;
     height: 322px;
     background: #2f2f2f;
+    border-radius: 2%;
     padding-left:9px;
     padding-top:7px;
     float: inherit;
@@ -4296,6 +4301,7 @@ input[type=range] + .thumb {
     width: 700px;
   	height: 540px;
   	background: #2f2f2f;
+    border-radius: 2%;
     padding-left:8px;
     padding-top:6px;
   	float: inherit;
@@ -4356,6 +4362,7 @@ input[type=range] + .thumb {
     width: 700px;
   	height: 540px;
   	background: #2f2f2f;
+    border-radius: 2%;
     padding-left:8px;
     padding-top:6px;
   	float: inherit;
