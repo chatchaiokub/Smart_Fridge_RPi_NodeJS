@@ -27,7 +27,7 @@ def sendDataDRINK(data):
 
 	global temp
 	global count
-	
+
 	if(data != temp):
 		temp = data
 		count = 0
@@ -39,7 +39,7 @@ def sendDataDRINK(data):
        		headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 		payload = {'drink': data}
         	response = requests.post(url,data=payload)
-	
+
 check = -1
 global temp
 global count
@@ -51,158 +51,45 @@ while True:
 
 	print val
 
-    	if val > 1020:
-		print ("No",val)
-		#if (check == 1):
-		#	check = 0
-		#	sendDataEGG(0)
-		#elif (check == 0):
-		#	check = 0
-		#elif (check == -1):
-		#	check = 0
-		#	sendDataEGG(0)
-		sendDataDRINK(0)
-    	elif val <= 1019 and val >= 1012:
-		print ("1 egg",val)
-		#if (check == 0):
-		#	check = 1
-		#	sendDataEGG(1)
-		#elif (check == 1):
-		#	check = 1
-		#else:
-                #        check = 1
-                #        sendDataEGG(1)
-		sendDataDRINK(1)
-    	elif val <= 1011 and val >= 1004:
-        	print ("2 egg",val)
-		#if (check == 1):
-                #        check = 2
-                #        sendDataEGG(2)
-                #elif (check == 2):
-                #        check = 2
-		#else:
-		#	check = 2
-		#	sendDataEGG(2)
-		sendDataDRINK(2)
+    if val > 1020:
+		        print ("No",val)
+		        sendDataDRINK(0)
+    elif val <= 1019 and val >= 1012:
+		        print ("1 drink",val)
+		        sendDataDRINK(1)
+    elif val <= 1011 and val >= 1004:
+        	    print ("2 drink",val)
+		        sendDataDRINK(2)
 	elif val <= 1003 and val >= 997:
-               print ("3 egg",val)
-               #if (check == 2):
-               #         check = 3
-               #         sendDataEGG(3)
-               #elif (check == 3):
-               #         check = 3
-	       #else:
-	       #         check = 3
-	       #	 sendDataEGG(3)
-	       sendDataDRINK(3)
+                print ("3 drink",val)
+	            sendDataDRINK(3)
 	elif val <= 996 and val >= 991:
-                print ("4 egg",val)
-
-                #if (check == 3):
-                #        check = 4
-                #        sendDataEGG(4)
-                #elif (check == 4):
-                #        check = 4
-                #else:
-                #        check = 4
-                #        sendDataEGG(4)
-		#	url = 'http://localhost:3000/setupEgg'
-		#	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-		#	response = requests.get(url,headers=headers)
-		sendDataDRINK(4)
+                print ("4 drink",val)
+        		#	url = 'http://localhost:3000/setupEgg'
+        		#	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+        		#	response = requests.get(url,headers=headers)
+		        sendDataDRINK(4)
 	elif val <= 990 and val >= 983:
-                print ("5 egg",val)
-
-                #if (check == 4):
-                #        check = 5
-                 #       sendDataEGG(5)
-                #elif (check == 5):
-                #        check = 5
-                #else:
-                 #       check = 5
-                  #      sendDataEGG(5)
-		sendDataDRINK(5)
+                print ("5 drink",val)
+		        sendDataDRINK(5)
 	elif val <= 982 and val >= 976:
-                print ("6 egg",val)
-
-                #if (check == 5):
-                 #       check = 6
-                  #      sendDataEGG(6)
-                #elif (check == 6):
-                 #       check = 6
-                #else:
-                 #       check = 6
-                  #      sendDataEGG(6)
-		sendDataDRINK(6)
+                print ("6 drink",val)
+		        sendDataDRINK(6)
 	elif val <= 975 and val >= 968:
-                print ("7 egg",val)
-
-                #if (check == 6):
-                 #       check = 7
-                  #      sendDataEGG(7)
-                #elif (check == 7):
-                 #       check = 7
-                #else:
-                 #       check = 7
-                  #      sendDataEGG(7)
-		sendDataDRINK(7)
+                print ("7 drink",val)
+		        sendDataDRINK(7)
 	elif val <= 969 and val >= 964:
-                print ("8 egg",val)
-
-                #if (check == 7):
-                 #       check = 8
-                  #      sendDataEGG(8)
-                #elif (check == 8):
-                 #       check = 8
-                #else:
-                 #       check = 8
-                  #      sendDataEGG(8)
-		sendDataDRINK(8)
+                print ("8 drink",val)
+		        sendDataDRINK(8)
 	elif val <= 963 and val >= 957:
                 print ("9 drink",val)
-
-                #if (check == 8):
-                 #       check = 9
-                  #      sendDataEGG(9)
-                #elif (check == 9):
-                 #       check = 9
-                #else:
-                 #       check = 9
-                  #      sendDataEGG(9)
-		sendDataDRINK(9)
+		        sendDataDRINK(9)
 	elif val <= 956 and val >= 952:
                 print ("10 drink",val)
-
-                #if (check == 8):
-                 #       check = 9
-                  #      sendDataEGG(9)
-                #elif (check == 9):
-                 #       check = 9
-                #else:
-                 #       check = 9
-                  #      sendDataEGG(9)
                 sendDataDRINK(10)
 	elif val <= 953 and val >= 949:
                 print ("11 drink",val)
-
-                #if (check == 8):
-                 #       check = 9
-                  #      sendDataEGG(9)
-                #elif (check == 9):
-                 #       check = 9
-                #else:
-                 #       check = 9
-                  #      sendDataEGG(9)
                 sendDataDRINK(11)
 	elif val <= 948 and val >= 943:
                 print ("12 drink",val)
-
-                #if (check == 8):
-                 #       check = 9
-                  #      sendDataEGG(9)
-                #elif (check == 9):
-                 #       check = 9
-                #else:
-                 #       check = 9
-                  #      sendDataEGG(9)
                 sendDataDRINK(12)
