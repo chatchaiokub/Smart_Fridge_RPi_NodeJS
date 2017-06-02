@@ -10,7 +10,7 @@ var cors = require('cors')
 var app = express()
 
 mongoose.connect('mongodb://fridge:fridge@ds133348.mlab.com:33348/smart-fridge')
-//mongoose.connect('mongodb://localhost/smart-fridge')
+// mongoose.connect('mongodb://localhost/smart-fridge')
 
 app.use(cors())
 app.use(bodyParser.json())
