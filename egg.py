@@ -33,14 +33,24 @@ def sendDataEGG(data):
 		count = 0
 	else:
 		count = count+1
+
 	if(count == 3):
 		print ("Sending..... ",data)
 		url = 'http://localhost:3000/dataEgg'
        		headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 		payload = {'egg': data}
         	response = requests.post(url,data=payload)
+		
+		if(data == 2 and send == 1):
+			url = 'http://localhost:3000/setupEgg'
+                	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+                	response = requests.get(url,headers=headers)
+			send = 0
 
-check = -1
+		elif(data != 2):
+			send = 1	
+
+send = 1
 global temp
 global count
 
@@ -65,9 +75,6 @@ while True:
 	        sendDataEGG(3)
 	elif val <= 995 and val >= 989:
                 print ("4 egg",val)
-        		#	url = 'http://localhost:3000/setupEgg'
-        		#	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-        		#	response = requests.get(url,headers=headers)
 		sendDataEGG(4)
 	elif val <= 987 and val >= 981:
                 print ("5 egg",val)

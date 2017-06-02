@@ -33,14 +33,23 @@ def sendDataDRINK(data):
 		count = 0
 	else:
 		count = count+1
+
 	if(count == 3):
 		print ("Sending..... ",data)
 		url = 'http://localhost:3000/dataDrink'
        		headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 		payload = {'drink': data}
         	response = requests.post(url,data=payload)
+		
+		if(data == 4 and send == 1):
+                        url = 'http://localhost:3000/setupDrink'
+                        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+                        response = requests.get(url,headers=headers)
+                        send = 0
 
-check = -1
+                elif(data != 4):
+                        send = 1
+send = 1
 global temp
 global count
 
@@ -65,9 +74,6 @@ while True:
 	        sendDataDRINK(3)
 	elif val <= 996 and val >= 991:
                 print ("4 drink",val)
-        		#	url = 'http://localhost:3000/setupEgg'
-        		#	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-        		#	response = requests.get(url,headers=headers)
 		sendDataDRINK(4)
 	elif val <= 990 and val >= 983:
                 print ("5 drink",val)
