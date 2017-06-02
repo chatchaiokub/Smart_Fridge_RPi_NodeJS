@@ -51,39 +51,39 @@ while True:
 
 	print val
 
-    if val > 1020:
-		        print ("No",val)
-		        sendDataDRINK(0)
-    elif val <= 1019 and val >= 1012:
-		        print ("1 drink",val)
-		        sendDataDRINK(1)
-    elif val <= 1011 and val >= 1004:
-        	    print ("2 drink",val)
-		        sendDataDRINK(2)
+    	if val > 1020:
+	        print ("No",val)
+	        sendDataDRINK(0)
+    	elif val <= 1019 and val >= 1012:
+	        print ("1 drink",val)
+	        sendDataDRINK(1)
+    	elif val <= 1011 and val >= 1004:
+       		print ("2 drink",val)
+	        sendDataDRINK(2)
 	elif val <= 1003 and val >= 997:
                 print ("3 drink",val)
-	            sendDataDRINK(3)
+	        sendDataDRINK(3)
 	elif val <= 996 and val >= 991:
                 print ("4 drink",val)
         		#	url = 'http://localhost:3000/setupEgg'
         		#	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
         		#	response = requests.get(url,headers=headers)
-		        sendDataDRINK(4)
+		sendDataDRINK(4)
 	elif val <= 990 and val >= 983:
                 print ("5 drink",val)
-		        sendDataDRINK(5)
+	        sendDataDRINK(5)
 	elif val <= 982 and val >= 976:
                 print ("6 drink",val)
-		        sendDataDRINK(6)
+	        sendDataDRINK(6)
 	elif val <= 975 and val >= 968:
                 print ("7 drink",val)
-		        sendDataDRINK(7)
+	        sendDataDRINK(7)
 	elif val <= 969 and val >= 964:
                 print ("8 drink",val)
-		        sendDataDRINK(8)
+	        sendDataDRINK(8)
 	elif val <= 963 and val >= 957:
                 print ("9 drink",val)
-		        sendDataDRINK(9)
+	        sendDataDRINK(9)
 	elif val <= 956 and val >= 952:
                 print ("10 drink",val)
                 sendDataDRINK(10)
