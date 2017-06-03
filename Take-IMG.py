@@ -35,8 +35,9 @@ def off():
 
 #--------------------------------------
 z = 1
+check = 0
 while True:
-	#20000
+
  if z==0:
   if RCtime(LDR) > 5000:
    on()
@@ -47,9 +48,11 @@ while True:
    off()
    GPIO.setup(3, GPIO.OUT)
    GPIO.output(3,GPIO.LOW)
+   check = 0
    z=1
   else:
    off()
+   check = 0
  elif z==1:
   if RCtime(LDR) < 3000:
    z = 0 
@@ -57,9 +60,17 @@ while True:
    os.system ("fswebcam -d /dev/video2 -r 1280x780 --no-banner ./public/Back.jpg")
    GPIO.setup(3, GPIO.OUT)
    GPIO.output(3,GPIO.HIGH)	#alert led when don't close the door
-   time.sleep(10)
-   os.system("python Alertdoor.py")	
+   
+   if(check >= 0 and check <= 100):
+    check += 1
+    time.sleep(1)
+
+    if(check == 100):
+     os.system ("python Alertdoor.py")
+     check = 999
+	
   else:
    off()
+   check = 0
 
  print RCtime(LDR)
