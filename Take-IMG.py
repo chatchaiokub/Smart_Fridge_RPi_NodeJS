@@ -57,6 +57,8 @@ while True:
    os.system ("fswebcam -d /dev/video2 -r 1280x780 --no-banner ./public/Back.jpg")
    GPIO.setup(3, GPIO.OUT)
    GPIO.output(3,GPIO.HIGH)	#alert led when don't close the door
+   time.sleep(10)
+   os.system("python Alertdoor.py")	
   else:
    off()
 
