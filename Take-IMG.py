@@ -61,11 +61,11 @@ while True:
    GPIO.setup(3, GPIO.OUT)
    GPIO.output(3,GPIO.HIGH)	#alert led when don't close the door
    
-   if(check >= 0 and check <= 100):
+   if(check >= 0 and check <= 10):
     check += 1
     time.sleep(1)
 
-    if(check == 100):
+    if(check == 10):
      os.system ("python Alertdoor.py")
      check = 999
 	
