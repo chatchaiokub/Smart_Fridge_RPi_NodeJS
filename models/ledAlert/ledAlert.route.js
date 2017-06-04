@@ -9,6 +9,8 @@
       if (err) { res.send(err) }
       else res.send({message: 'done'})
     })
+  })
+  router.get('/Alertexpire', function (req, res) {
     PythonShell.run('Alertexpire.py', function (err) {
       if (err) { res.send(err) }
       else res.send({message: 'done'})

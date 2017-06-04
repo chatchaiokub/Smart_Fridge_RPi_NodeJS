@@ -238,6 +238,9 @@ angular.module('dragApp', [])
       $http.get('/ledAlertON').success(function (response) {
         console.log(response)
       })
+      $http.get('/Alertexpire').success(function (response) {
+        console.log(response)
+      })
     }else {
       $http.get('/ledAlertOFF').success(function (response) {
         console.log(response)

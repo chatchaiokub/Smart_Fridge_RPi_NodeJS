@@ -12,6 +12,7 @@ spi.open(0, 0)
 
 temp = 0
 count = 0
+send = 1
 
 def analogRead(data):
 
@@ -27,7 +28,7 @@ def sendDataEGG(data):
 
 	global temp
 	global count
-
+        global send
 	if(data != temp):
 		temp = data
 		count = 0
@@ -50,10 +51,10 @@ def sendDataEGG(data):
 		elif(data != 2):
 			send = 1	
 
-send = 1
+
 global temp
 global count
-
+global send
 while True:
 
     	val = analogRead(channel)
