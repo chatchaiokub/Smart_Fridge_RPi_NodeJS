@@ -11,7 +11,7 @@
     res.send('success')
   })
 
-  router.get('/setupEggggg', function (req, res) {
+  router.get('/setupEgg', function (req, res) {
     var api_key = 'key-b86bc2d406d41485a38a6290e26adde9'
     var domain = 'sandbox340c66c365524888a8427b6a32210046.mailgun.org'
     var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain})
@@ -29,17 +29,6 @@
         res.send('Mail not Send')
       }
     })
-  })
-  router.get('/setupEgg', function (req, res) {
-  	var sendgrid = require("sendgrid")("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");
-	var email = new sendgrid.Email();
-
-	email.addTo("chatty30433@windowslive.com");
-	email.setFrom("5606021612065@fitm.kmutnb.ac.th");
-	email.setSubject("Sending with SendGrid is Fun");
-	email.setHtml("and easy to do anywhere, even with Node.js");
-
-	sendgrid.send(email);
   })
   router.get('/setupDrink', function (req, res) {
     var api_key = 'key-b86bc2d406d41485a38a6290e26adde9'
