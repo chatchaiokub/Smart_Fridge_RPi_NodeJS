@@ -40,6 +40,7 @@
     email.setHtml('and easy to do anywhere, even with Node.js')
 
     sendgrid.send(email)
+    res.send('done')
   })
   router.get('/setupDrink', function (req, res) {
     var api_key = 'key-b86bc2d406d41485a38a6290e26adde9'
