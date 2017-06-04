@@ -32,8 +32,8 @@
   // })
   router.get('/setupEgg', function (req, res) {
     var helper = require('sendgrid').mail
-    var fromEmail = new helper.Email('test@example.com')
-    var toEmail = new helper.Email('test@example.com')
+    var fromEmail = new helper.Email('5606021612065@fitm.kmutnb.ac.th')
+    var toEmail = new helper.Email('chatty30433@windowslive.com')
     var subject = 'Sending with SendGrid is Fun'
     var content = new helper.Content('text/plain', 'and easy to do anywhere, even with Node.js')
     var mail = new helper.Mail(fromEmail, subject, toEmail, content)
