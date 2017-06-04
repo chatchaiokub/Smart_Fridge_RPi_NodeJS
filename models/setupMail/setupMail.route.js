@@ -31,16 +31,26 @@
   //   })
   // })
   router.get('/setupEgg', function (req, res) {
-    var sendgrid = require('sendgrid')('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')
-    var email = new sendgrid.Email()
-
-    email.addTo('chatty30433@windowslive.com')
-    email.setFrom('5606021612065@fitm.kmutnb.ac.th')
-    email.setSubject('Sending with SendGrid is Fun')
-    email.setHtml('and easy to do anywhere, even with Node.js')
-
-    sendgrid.send(email)
-    res.send('done')
+    var helper = require('sendgrid').mail
+    var fromEmail = new helper.Email('test@example.com')
+    var toEmail = new helper.Email('test@example.com')
+    var subject = 'Sending with SendGrid is Fun'
+    var content = new helper.Content('text/plain', 'and easy to do anywhere, even with Node.js')
+    var mail = new helper.Mail(fromEmail, subject, toEmail, content)
+    var sg = require('sendgrid')(process.env.SENDGRID_API_KEY)
+    var request = sg.emptyRequest({
+      method: 'POST',
+      path: '/v3/mail/send',
+      body: mail.toJSON()
+    })
+    sg.API(request, function (error, response) {
+      if (error) {
+        console.log('Error response received')
+      }
+      console.log(response.statusCode)
+      console.log(response.body)
+      console.log(response.headers)
+    })
   })
   router.get('/setupDrink', function (req, res) {
     var api_key = 'key-b86bc2d406d41485a38a6290e26adde9'
