@@ -11,47 +11,68 @@
     res.send('success')
   })
 
-  router.get('/setupEgg', function (req, res) {
-    var api_key = 'key-087ab4313404c2df9dab775cb3d0ecb9'
-    var domain = 'sandboxbbf5cfe12b8741589ab71636de046655.mailgun.org'
-    var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain})
-    var data = {
-      from: 'Smart-FridgeC <postmaster@sandboxbbf5cfe12b8741589ab71636de046655.mailgun.org>',
-      to: 'chatty30433@windowslive.com',
-      subject: 'Order Buy Eggs',
-      text: 'Buy Eggs 1 Dozen'
-    }
-    mailgun.messages().send(data, function (error, body) {
-      console.log(body)
-      if (!error) {
-        res.send('Mail Send')
-      }else {
-        res.send('Mail not Send')
-      }
-    })
-  })
   // router.get('/setupEgg', function (req, res) {
-  //   var helper = require('sendgrid').mail
-  //   var fromEmail = new helper.Email('5606021612065@fitm.kmutnb.ac.th')
-  //   var toEmail = new helper.Email('chatty30433@windowslive.com')
-  //   var subject = 'Sending with SendGrid is Fun'
-  //   var content = new helper.Content('text/plain', 'and easy to do anywhere, even with Node.js')
-  //   var mail = new helper.Mail(fromEmail, subject, toEmail, content)
-  //   var sg = require('sendgrid')(process.env.SENDGRID_API_KEY)
-  //   var request = sg.emptyRequest({
-  //     method: 'POST',
-  //     path: '/v3/mail/send',
-  //     body: mail.toJSON()
-  //   })
-  //   sg.API(request, function (error, response) {
-  //     if (error) {
-  //       console.log('Error response received')
+  //   var api_key = 'key-087ab4313404c2df9dab775cb3d0ecb9'
+  //   var domain = 'sandboxbbf5cfe12b8741589ab71636de046655.mailgun.org'
+  //   var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain})
+  //   var data = {
+  //     from: 'Smart-FridgeC <postmaster@sandboxbbf5cfe12b8741589ab71636de046655.mailgun.org>',
+  //     to: 'chatty30433@windowslive.com',
+  //     subject: 'Order Buy Eggs',
+  //     text: 'Buy Eggs 1 Dozen'
+  //   }
+  //   mailgun.messages().send(data, function (error, body) {
+  //     console.log(body)
+  //     if (!error) {
+  //       res.send('Mail Send')
+  //     }else {
+  //       res.send('Mail not Send')
   //     }
-  //     console.log(response.statusCode)
-  //     console.log(response.body)
-  //     console.log(response.headers)
   //   })
   // })
+  router.get('/setupEgg', function (req, res) {
+    var nodemailer = require('nodemailer')
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: '5606021612065@fitm.kmutnb.ac.th',
+        pass: 'anachakfitmokub@31'
+      }
+    })
+    var mailOptions = {
+      from: '5606021612065@fitm.kmutnb.ac.th',
+      to: 'chatty30433@windowslive.com',
+      subject: 'Sending Email using Node.js',
+      text: 'That was easy!'
+    }
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error)
+      } else {
+        console.log('Email sent: ' + info.response)
+      }
+    })
+    // var helper = require('sendgrid').mail
+    // var fromEmail = new helper.Email('5606021612065@fitm.kmutnb.ac.th')
+    // var toEmail = new helper.Email('chatty30433@windowslive.com')
+    // var subject = 'Sending with SendGrid is Fun'
+    // var content = new helper.Content('text/plain', 'and easy to do anywhere, even with Node.js')
+    // var mail = new helper.Mail(fromEmail, subject, toEmail, content)
+    // var sg = require('sendgrid')(process.env.SENDGRID_API_KEY)
+    // var request = sg.emptyRequest({
+    //   method: 'POST',
+    //   path: '/v3/mail/send',
+    //   body: mail.toJSON()
+    // })
+    // sg.API(request, function (error, response) {
+    //   if (error) {
+    //     console.log('Error response received')
+    //   }
+    //   console.log(response.statusCode)
+    //   console.log(response.body)
+    //   console.log(response.headers)
+    // })
+  })
   router.get('/setupDrink', function (req, res) {
     var api_key = 'key-b86bc2d406d41485a38a6290e26adde9'
     var domain = 'sandbox340c66c365524888a8427b6a32210046.mailgun.org'
