@@ -49,51 +49,12 @@
     transport.sendMail(mailOptions, function (error, info) {
       if (error) {
         console.log(error)
+        res.send('Mail Not Send')
       } else {
         console.log('Email sent: ' + info.response)
+        res.send('Mail Send')
       }
     })
-    // var nodemailer = require('nodemailer')
-    // var transporter = nodemailer.createTransport({
-    //   service: 'gmail',
-    //   auth: {
-    //     user: '5606021612065@fitm.kmutnb.ac.th',
-    //     pass: 'anachakfitmokub@31'
-    //   }
-    // })
-    // var mailOptions = {
-    //   from: '5606021612065@fitm.kmutnb.ac.th',
-    //   to: 'chatty30433@windowslive.com',
-    //   subject: 'Sending Email using Node.js',
-    //   text: 'That was easy!'
-    // }
-    // transporter.sendMail(mailOptions, function (error, info) {
-    //   if (error) {
-    //     console.log(error)
-    //   } else {
-    //     console.log('Email sent: ' + info.response)
-    //   }
-    // })
-    // var helper = require('sendgrid').mail
-    // var fromEmail = new helper.Email('5606021612065@fitm.kmutnb.ac.th')
-    // var toEmail = new helper.Email('chatty30433@windowslive.com')
-    // var subject = 'Sending with SendGrid is Fun'
-    // var content = new helper.Content('text/plain', 'and easy to do anywhere, even with Node.js')
-    // var mail = new helper.Mail(fromEmail, subject, toEmail, content)
-    // var sg = require('sendgrid')(process.env.SENDGRID_API_KEY)
-    // var request = sg.emptyRequest({
-    //   method: 'POST',
-    //   path: '/v3/mail/send',
-    //   body: mail.toJSON()
-    // })
-    // sg.API(request, function (error, response) {
-    //   if (error) {
-    //     console.log('Error response received')
-    //   }
-    //   console.log(response.statusCode)
-    //   console.log(response.body)
-    //   console.log(response.headers)
-    // })
   })
   router.get('/setupDrink', function (req, res) {
     var api_key = 'key-b86bc2d406d41485a38a6290e26adde9'
