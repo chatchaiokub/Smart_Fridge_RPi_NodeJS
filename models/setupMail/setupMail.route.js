@@ -31,27 +31,48 @@
   //   })
   // })
   router.get('/setupEgg', function (req, res) {
-    var nodemailer = require('nodemailer')
-    var transporter = nodemailer.createTransport({
+    var smtpTransport = require('nodemailer-smtp-transport')
+    var transport = nodemailer.createTransport(smtpTransport({
       service: 'gmail',
       auth: {
-        user: '5606021612065@fitm.kmutnb.ac.th',
+        user: '5606021612065@fitm.kmutnb.ac.th', // my mail
         pass: 'anachakfitmokub@31'
       }
-    })
+    }))
     var mailOptions = {
       from: '5606021612065@fitm.kmutnb.ac.th',
       to: 'chatty30433@windowslive.com',
       subject: 'Sending Email using Node.js',
       text: 'That was easy!'
     }
-    transporter.sendMail(mailOptions, function (error, info) {
+    transport.sendMail(mailOptions, function (error, info) {
       if (error) {
         console.log(error)
       } else {
         console.log('Email sent: ' + info.response)
       }
     })
+    // var nodemailer = require('nodemailer')
+    // var transporter = nodemailer.createTransport({
+    //   service: 'gmail',
+    //   auth: {
+    //     user: '5606021612065@fitm.kmutnb.ac.th',
+    //     pass: 'anachakfitmokub@31'
+    //   }
+    // })
+    // var mailOptions = {
+    //   from: '5606021612065@fitm.kmutnb.ac.th',
+    //   to: 'chatty30433@windowslive.com',
+    //   subject: 'Sending Email using Node.js',
+    //   text: 'That was easy!'
+    // }
+    // transporter.sendMail(mailOptions, function (error, info) {
+    //   if (error) {
+    //     console.log(error)
+    //   } else {
+    //     console.log('Email sent: ' + info.response)
+    //   }
+    // })
     // var helper = require('sendgrid').mail
     // var fromEmail = new helper.Email('5606021612065@fitm.kmutnb.ac.th')
     // var toEmail = new helper.Email('chatty30433@windowslive.com')
