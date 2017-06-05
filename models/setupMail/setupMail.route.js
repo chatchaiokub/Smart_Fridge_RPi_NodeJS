@@ -31,6 +31,7 @@
   //   })
   // })
   router.get('/setupEgg', function (req, res) {
+    var nodemailer = require('nodemailer')
     var smtpTransport = require('nodemailer-smtp-transport')
     var transport = nodemailer.createTransport(smtpTransport({
       service: 'gmail',
