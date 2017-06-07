@@ -65,33 +65,33 @@ while True:
 	if val > 1020:
 		print ("No",val)
 		sendDataEGG(0)
-    	elif val <= 1017 and val >= 1013:
+    	elif val <= 1019 and val >= 994:
 		print ("1 egg",val)
 		sendDataEGG(1)
-    	elif val <= 1008 and val >= 1003:
+    	elif val <= 995 and val >= 976:
         	print ("2 egg",val)
 		sendDataEGG(2)
-	elif val <= 1002 and val >= 997:
+	elif val <= 975 and val >= 961:
                 print ("3 egg",val)
 	        sendDataEGG(3)
-	elif val <= 995 and val >= 989:
+	elif val <= 960 and val >= 946:
                 print ("4 egg",val)
 		sendDataEGG(4)
-	elif val <= 987 and val >= 981:
+	elif val <= 945 and val >= 932:
                 print ("5 egg",val)
 		sendDataEGG(5)
-	elif val <= 980 and val >= 975:
+	elif val <= 931 and val >= 918:
                 print ("6 egg",val)
 		sendDataEGG(6)
-	elif val <= 974 and val >= 968:
+	elif val <= 917 and val >= 905:
                 print ("7 egg",val)
 		sendDataEGG(7)
-	elif val <= 967 and val >= 962:
+	elif val <= 904 and val >= 892:
                 print ("8 egg",val)
 		sendDataEGG(8)
-	elif val <= 961 and val >= 956:
+	elif val <= 891 and val >= 879:
                 print ("9 egg",val)
 	        sendDataEGG(9)
-	elif val <= 955 and val >= 900:
+	elif val <= 878 and val >= 867:
                 print ("10 egg",val)
 	        sendDataEGG(10)
