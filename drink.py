@@ -63,39 +63,39 @@ while True:
     	if val > 1020:
 	        print ("No",val)
 	        sendDataDRINK(0)
-    	elif val <= 1020 and val >= 1003:
+    	elif val <= 1020 and val >= 1005:
 	        print ("1 drink",val)
 	        sendDataDRINK(1)
-    	elif val <= 1002 and val >= 988:
+    	elif val <= 1004 and val >= 990:
        		print ("2 drink",val)
 	        sendDataDRINK(2)
-	elif val <= 987 and val >= 973:
+	elif val <= 989 and val >= 975:
                 print ("3 drink",val)
 	        sendDataDRINK(3)
-	elif val <= 972 and val >= 962:
+	elif val <= 974 and val >= 964:
                 print ("4 drink",val)
 		sendDataDRINK(4)
-	elif val <= 961 and val >= 951:
+	elif val <= 963 and val >= 953:
                 print ("5 drink",val)
 	        sendDataDRINK(5)
-	elif val <= 950 and val >= 940:
+	elif val <= 952 and val >= 942:
                 print ("6 drink",val)
 	        sendDataDRINK(6)
-	elif val <= 939 and val >= 928:
+	elif val <= 941 and val >= 930:
                 print ("7 drink",val)
 	        sendDataDRINK(7)
-	elif val <= 927 and val >= 919:
+	elif val <= 929 and val >= 921:
                 print ("8 drink",val)
 	        sendDataDRINK(8)
-	elif val <= 918 and val >= 909:
+	elif val <= 920 and val >= 911:
                 print ("9 drink",val)
 	        sendDataDRINK(9)
-	elif val <= 908 and val >= 899:
+	elif val <= 910 and val >= 901:
                 print ("10 drink",val)
                 sendDataDRINK(10)
-	elif val <= 898 and val >= 893:
+	elif val <= 900 and val >= 895:
                 print ("11 drink",val)
                 sendDataDRINK(11)
-	elif val <= 892 and val >= 880:
+	elif val <= 894 and val >= 882:
                 print ("12 drink",val)
                 sendDataDRINK(12)
