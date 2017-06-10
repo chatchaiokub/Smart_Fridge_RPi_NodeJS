@@ -68,7 +68,7 @@ while True:
   line = 1
   if line == 1:
    LINE += line
-  if LINE == 20:
+  if LINE == 40:
    os.system ("python Alertdoor.py")
    LINE = 0
   
