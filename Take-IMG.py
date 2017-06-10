@@ -41,17 +41,17 @@ while True:
 
  if z==0:
   if RCtime(LDR) > 5000:
-   on()
+   off()
    time.sleep(3)
    os.system ("fswebcam -d /dev/video0 -r 1280x780 --no-banner ./public/Front1.jpg")
    os.system ("fswebcam -d /dev/video1 -r 1280x780 --no-banner ./public/Front2.jpg")
    time.sleep(3)
-   off()
+   on()
    GPIO.setup(3, GPIO.OUT)
    GPIO.output(3,GPIO.LOW)
    z=1
   else:
-   off()
+   on()
  elif z==1:
   if RCtime(LDR) < 3000:
    z = 0 
@@ -61,7 +61,7 @@ while True:
    GPIO.output(3,GPIO.HIGH)	#alert led when don't close the door
 	
   else:
-   off()
+   on()
    line = 0
  
  if RCtime(LDR) < 3000:
