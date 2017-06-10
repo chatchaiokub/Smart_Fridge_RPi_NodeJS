@@ -12,7 +12,7 @@ spi.open(0, 0)
 
 temp = 0
 count = 0
-
+send = 1
 def analogRead(data):
 
     	if data > 7 or data < 0:
@@ -27,7 +27,7 @@ def sendDataDRINK(data):
 
 	global temp
 	global count
-
+        global send
 	if(data != temp):
 		temp = data
 		count = 0
@@ -49,7 +49,7 @@ def sendDataDRINK(data):
 
                 elif(data != 4):
                         send = 1
-send = 1
+global send
 global temp
 global count
 
@@ -63,39 +63,39 @@ while True:
     	if val > 1020:
 	        print ("No",val)
 	        sendDataDRINK(0)
-    	elif val <= 1019 and val >= 1012:
+    	elif val <= 1020 and val >= 1003:
 	        print ("1 drink",val)
 	        sendDataDRINK(1)
-    	elif val <= 1011 and val >= 1004:
+    	elif val <= 1002 and val >= 988:
        		print ("2 drink",val)
 	        sendDataDRINK(2)
-	elif val <= 1003 and val >= 997:
+	elif val <= 987 and val >= 973:
                 print ("3 drink",val)
 	        sendDataDRINK(3)
-	elif val <= 996 and val >= 991:
+	elif val <= 972 and val >= 962:
                 print ("4 drink",val)
 		sendDataDRINK(4)
-	elif val <= 990 and val >= 983:
+	elif val <= 961 and val >= 951:
                 print ("5 drink",val)
 	        sendDataDRINK(5)
-	elif val <= 982 and val >= 976:
+	elif val <= 950 and val >= 940:
                 print ("6 drink",val)
 	        sendDataDRINK(6)
-	elif val <= 975 and val >= 968:
+	elif val <= 939 and val >= 928:
                 print ("7 drink",val)
 	        sendDataDRINK(7)
-	elif val <= 969 and val >= 964:
+	elif val <= 927 and val >= 919:
                 print ("8 drink",val)
 	        sendDataDRINK(8)
-	elif val <= 963 and val >= 957:
+	elif val <= 918 and val >= 909:
                 print ("9 drink",val)
 	        sendDataDRINK(9)
-	elif val <= 956 and val >= 952:
+	elif val <= 908 and val >= 899:
                 print ("10 drink",val)
                 sendDataDRINK(10)
-	elif val <= 953 and val >= 949:
+	elif val <= 898 and val >= 893:
                 print ("11 drink",val)
                 sendDataDRINK(11)
-	elif val <= 948 and val >= 943:
+	elif val <= 892 and val >= 880:
                 print ("12 drink",val)
                 sendDataDRINK(12)
