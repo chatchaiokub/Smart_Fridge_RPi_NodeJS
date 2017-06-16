@@ -50,7 +50,7 @@
       from: '5606021612065@fitm.kmutnb.ac.th',
       to: 'chatty30433@windowslive.com',
       subject: SUBJECT,
-      text: BODYTEXT+'12 bottols'
+      text: BODYTEXT + '12 bottols'
     }
     transport.sendMail(mailOptions, function (error, info) {
       if (error) {

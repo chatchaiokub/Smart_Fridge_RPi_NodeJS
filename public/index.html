@@ -24,8 +24,8 @@
 <body ng-app="dragApp" ng-controller="dragCtrl" ng-init="init()">
   <!-- Drag button bar -->
   <center>
-    <div class="container">
-      <div class="row" ng-if="tabList">
+    <div ng-if="tabList" class="container">
+      <div class="row">
         <br>
         <span class="flow-text white-text"><center>Click & Drag labels onto food items.</center></span>
       </div>
@@ -69,14 +69,16 @@
   <img ng-hide="!flipStatus" ng-if="tabList" class="responsive-img"src="Back.jpg">
   </center>
 
-  <div ng-if="tabFreezer" style="padding-top:50px;padding-bottom:30px;">
-    <center>
-      <a class="btn-large grey darken-4" ng-click="openFreezer()"><i class="material-icons right">subtitles</i>Add Data Freezer</a>
-    </center>
-  </div>
-  <div ng-if="tabFreezer" class="container img-space">
-    <div ng-repeat="item in freezer" style="float:left; display:inline;" ng-click="openFreezerUpdate(item._id, $index)">
-      <img class="img-space-size" ng-src="{{item.Url}}">
+  <div ng-if="tabFreezer">
+    <div style="padding-top:50px;padding-bottom:30px">
+      <center>
+        <a class="btn-large grey darken-4" ng-click="openFreezer()"><i class="material-icons right">mode_edit</i>Add Data Freezer</a>
+      </center>
+    </div>
+    <div class="container img-space">
+      <div ng-repeat="item in freezer" style="float:left; display:inline;" ng-click="openFreezerUpdate(item._id, $index)">
+        <img class="img-space-size" ng-src="{{item.Url}}">
+      </div>
     </div>
   </div>
 
@@ -84,7 +86,7 @@
     <div class="container">
       <div class="row">
         <div class="col s12 m12 l12">
-          <center><h4 class="blue-text text-lighten-1">Tray Setting</h4></center>
+          <center><h4 class="blue-text text-lighten-1">Tray Monitor</h4></center>
         </div>
       </div>
       <div class="row">
@@ -103,16 +105,13 @@
           <br><h3 class="blue-text text-lighten-1">: {{PACK}}</h3>
         </div>
       </div>
-          <form ng-submit="setupMail(M)">
-                <label>Setup Mail of Tray Drink</label>
-                <select class="browser-default" ng-model="M.bodyText">
-                  <option value="" disabled selected>Choose your option</option>
-                  <option ng-repeat="list in order">{{list.item}}</option>
-                </select>
-            <br>
-            <center><button style="width:100%;" class="btn waves-effect waves-light blue" type="submit" name="action">SAVE</button></center>
-            <br>
-          </form>
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <center>
+            <button style="margin-top:-2px;" class="btn blue" ng-click="openSettingTray()"><i class="material-icons right">settings</i>setting</button>
+          </center>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -146,7 +145,7 @@
   </div>
 
   <!-- Button Snap! -->
-  <div class="fixed-action-btn horizontal click-to-toggle" style="bottom:5px; right:5px;">
+  <div ng-if="tabList" class="fixed-action-btn horizontal click-to-toggle" style="bottom:25px; right:5px;">
       <a class="btn-floating btn-large waves-effect waves-light amber darken-3">
         <div class="icon-bars" data-icon="B"></div>
       </a>
@@ -243,7 +242,8 @@
   <div id="openFreezerUpdate" class="modal">
     <div class="modal-content">
       <h5 class="flow-text">What is this?</h5>
-      <img style="width:100px; height:100px;" ng-src="{{updateURL}}"/>
+      <img class="materialboxed open-img" ng-src="{{updateURL}}"/>
+      <i class="material-icons" style="padding-left:80px;">zoom_in</i>
       <input type="text" ng-model="updateTFREEZER" placeholder="Enter food name here">
       <h5 class="flow-text">Set a reminder (From today)<i class="icon-calendar" data-icon="a"></i></h5>
       <input type="date" class="datepicker" ng-model="updateDFREEZER" placeholder="Set date reminder">
@@ -273,12 +273,37 @@
     </div>
   </div>
 
+  <div id="openSettingTray" class="modal">
+    <div class="modal-content">
+      <form ng-submit="setupMail(M)">
+            <label>Setup Mail of Tray Drink</label>
+            <select class="browser-default" ng-model="M.bodyText">
+              <option value="" disabled selected>Choose your option</option>
+              <option ng-repeat="list in order">{{list.item}}</option>
+            </select>
+        <br>
+        <center><button style="width:100%;" class="btn waves-effect waves-light blue" type="submit" name="action">SAVE</button></center>
+        <br>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <div class="container">
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <button class="modal-action modal-close btn-flat right">Exit</button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Script Modal -->
   <script>
     $(document).ready(function() {
       $('.modal-trigger').leanModal();
       $('ul.tabs').tabs();
       $('select').material_select();
+      $('.materialboxed').materialbox();
     });
     $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month

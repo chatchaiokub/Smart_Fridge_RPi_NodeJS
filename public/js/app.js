@@ -149,27 +149,6 @@ angular.module('dragApp', [])
       })
     }
   })
-  // ///////////////////////////////////////////////////////
-  // $scope.getDataFreezer = function () {
-  //   $http.get('/freezer').success(function (response) {
-  //     $scope.state = 0
-  //     $scope.freezer = response
-  //     // ////// LED Check //////
-  //     $scope.CheckFreezer = []
-  //     for (var i = 0; i < response.length; i++) {
-  //       $scope.CheckFreezer[i] = response[i].endDate
-  //       var now = new Date()
-  //       var datePick = new Date($scope.CheckFreezer[i])
-  //       var SUMDATA = Math.ceil((datePick - now) / (1000 * 3600 * 24))
-  //       if (SUMDATA <= 0) {
-  //         $scope.state = 1
-  //       }
-  //     }
-  //     console.log($scope.state)
-  //     // ////// LED Check //////
-  //   })
-  // }
-  // $scope.getDataFreezer()
   $scope.openFreezer = function () {
     $('#openFreezer').openModal()
   }
@@ -260,6 +239,9 @@ angular.module('dragApp', [])
     $http.get('/dataDrink').then(function (response) {
       $scope.PACK = response.data
     })
+  }
+  $scope.openSettingTray = function () {
+    $('#openSettingTray').openModal()
   }
   $scope.order = [{item: 'Coke 220ml'}, {item: 'Milk 220ml'}, {item: 'Water 220ml'}]
   $scope.setupMail = function (M) {
