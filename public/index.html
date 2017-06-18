@@ -335,7 +335,7 @@
       </div>
       <div class="row">
         <div class="col s12 m12 l12">
-          <button type="submit" style="width:100%;" class="btn blue" ng-disabled="(!infoEmail || sum === 0 || sum < 12) && !infoAuto">SAVE</button>
+          <button type="submit" style="width:100%;" class="btn blue" ng-disabled="(!infoEmail || sum === 0 || sum < 12) && (!infoAuto || !infoEmail)">SAVE</button>
         </div>
       </div>
     </div>
