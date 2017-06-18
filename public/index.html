@@ -70,7 +70,7 @@
   </center>
 
   <div ng-if="tabFreezer">
-    <div style="padding-top:50px;padding-bottom:30px">
+    <div style="padding-top:30px;padding-bottom:30px">
       <center>
         <a class="btn-large grey darken-4" ng-click="openFreezer()"><i class="material-icons right">mode_edit</i>Add Data Freezer</a>
       </center>
@@ -108,7 +108,9 @@
       <div class="row">
         <div class="col s12 m12 l12">
           <center>
-            <button style="margin-top:-2px;" class="btn blue" ng-click="openSettingTray()"><i class="material-icons right">settings</i>setting</button>
+            <button style="margin-top:-2px;" class="btn blue" ng-click="openSettingTray()">Setting
+              <i class="material-icons right">settings</i>
+            </button>
           </center>
         </div>
       </div>
@@ -242,7 +244,7 @@
   <div id="openFreezerUpdate" class="modal">
     <div class="modal-content">
       <h5 class="flow-text">What is this?</h5>
-      <img class="materialboxed open-img" ng-src="{{updateURL}}"/>
+      <img class="materialboxed open-img responsive-img" ng-src="{{updateURL}}"/>
       <i class="material-icons" style="padding-left:80px;">zoom_in</i>
       <input type="text" ng-model="updateTFREEZER" placeholder="Enter food name here">
       <h5 class="flow-text">Set a reminder (From today)<i class="icon-calendar" data-icon="a"></i></h5>
@@ -274,23 +276,75 @@
   </div>
 
   <div id="openSettingTray" class="modal">
+  <form ng-submit="send()">
     <div class="modal-content">
-      <form ng-submit="setupMail(M)">
-            <label>Setup Mail of Tray Drink</label>
-            <select class="browser-default" ng-model="M.bodyText">
-              <option value="" disabled selected>Choose your option</option>
-              <option ng-repeat="list in order">{{list.item}}</option>
-            </select>
-        <br>
-        <center><button style="width:100%;" class="btn waves-effect waves-light blue" type="submit" name="action">SAVE</button></center>
-        <br>
-      </form>
+      <!-- Info Email -->
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <label>Select Shop to E-mail</label>
+          <select class="input-field" ng-model="infoEmail">
+            <option value="" disabled selected>Choose your option</option>
+            <option ng-repeat="list in email" value="{{list.email}}">{{list.name}}</option>
+          </select>
+        </div>
+      </div>
+      <!-- Choose Auto / Custom -->
+      <div class="row">
+        <div class="col s6 m6 l6">
+          <p>
+            <input class="with-gap radio-blue" ng-model="content" type="radio" value="auto" id="auto" ng-click="check()">
+            <label for="auto">Auto</label>
+          </p>
+        </div>
+        <div class="col s6 m6 l6">
+          <p>
+            <input class="with-gap radio-blue" ng-model="content" type="radio" value="custom" id="custom" ng-click="check()">
+            <label for="custom">Custom</label>
+          </p>
+        </div>
+      </div>
+      <!-- Show Auto -->
+      <div ng-show="content == 'auto'" class="row">
+        <div class="col s12 m12 l12">
+          <label>Select drink item</label>
+          <select class="input-field" ng-model="infoAuto">
+            <option value="" disabled selected>Choose your option</option>
+            <option ng-repeat="list in orderAuto" value="{{list.item}}">{{list.item}}</option>
+          </select>
+        </div>
+      </div>
+      <!-- Show Custom -->
+      <div ng-show="content == 'custom'" class="row">
+        <div ng-repeat="item in orderCustom track by $index">
+            <div class="col s7 m7 l7">
+              <p>
+                <input type="checkbox" class="filled-in checkbox-blue" id="{{item.id}}" ng-model="item.done" ng-change="checkTotal($index)">
+                <label for="{{item.id}}">{{item.name}}</label>
+              </p>
+            </div>
+            <div ng-show="item.done" class="col s2 m2 l2">
+              <p>x</p>
+            </div>
+            <div ng-show="item.done" class="col s3 m3 l3">
+              <input type="number" ng-model="item.amount" ng-change="updateCustom()">
+            </div>
+        </div>
+      </div>
+      <div ng-show="content == 'custom'" class="row">
+        <center><h6><b>Total {{sum}} of 12 Bottles</b></h6></center>
+      </div>
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <button type="submit" style="width:100%;" class="btn blue" ng-disabled="!infoEmail">SAVE</button>
+        </div>
+      </div>
     </div>
+    </form>
     <div class="modal-footer">
       <div class="container">
       <div class="row">
         <div class="col s12 m12 l12">
-          <button class="modal-action modal-close btn-flat right">Exit</button>
+          <button class="modal-action modal-close btn-flat right">Close</button>
         </div>
       </div>
       </div>

@@ -4103,13 +4103,13 @@ input[type=range] + .thumb {
   }
   .img-space {
     width: 320px;
-  	height: 260px;
+  	height: 300px;
   	background: #2f2f2f;
     border-radius: 2%;
     padding-left:5px;
     padding-top:5px;
   	float: inherit;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   .img-space-size {
     width:78px; height:80px;
@@ -4150,51 +4150,58 @@ input[type=range] + .thumb {
   }
   .img-space {
     width: 320px;
-  	height: 260px;
+  	height: 300px;
   	background: #2f2f2f;
     border-radius: 2%;
     padding-left:5px;
     padding-top:5px;
   	float: inherit;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   .img-space-size {
     width:78px; height:80px;
+  }
+  .modal {
+    width: 30%;
   }
 }
 @media only screen and (min-width: 361px) {
   .img-space {
     width: 345px;
-  	height: 270px;
+  	height: 320px;
   	background: #2f2f2f;
     border-radius: 2%;
     padding-left:9px;
     padding-top:6px;
   	float: inherit;
+    margin-bottom: 30px;
   }
   .img-space-size {
     width:82px; height:82px;
+  }
+  .modal {
+    width: 30%;
   }
 }
 @media only screen and (min-width: 376px) {
   .img-space {
     width: 380px;
-  	height: 300px;
+  	height: 350px;
   	background: #2f2f2f;
     border-radius: 2%;
     padding-left:9px;
     padding-top:6px;
   	float: inherit;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   .img-space-size {
     width:90px; height:92px;
   }
+  .modal {
+    width: 30%;
+  }
 }
 @media only screen and (min-width: 415px) {     /*------------------- iPhone 6 Plus,6s Plus (414px) -----------------*/
-  .modal {
-    height: 95%;
-  }
   .row .col.s1 {
     width: 9.3%;
     margin-left: auto;
@@ -4242,16 +4249,19 @@ input[type=range] + .thumb {
   }
   .img-space {
     width: 402px;
-    height: 322px;
+    height: 380px;
     background: #2f2f2f;
     border-radius: 2%;
     padding-left:9px;
     padding-top:7px;
     float: inherit;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   .img-space-size {
     width:96px; height:98px;
+  }
+  .modal {
+    width: 30%;
   }
 }
 @media only screen and (min-width: 769px) {     /*------------------------ All iPad (768px) -------------------------*/
@@ -4303,16 +4313,19 @@ input[type=range] + .thumb {
   }
   .img-space {
     width: 700px;
-  	height: 540px;
+  	height: 640px;
   	background: #2f2f2f;
     border-radius: 2%;
     padding-left:8px;
     padding-top:6px;
   	float: inherit;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   .img-space-size {
     width:171px; height:171px;
+  }
+  .modal {
+    width: 30%;
   }
 }
 @media only screen and (min-width: 801px) {     /*----------------- All Samsung Galaxy Tab (800px) --------------------*/
@@ -4364,16 +4377,19 @@ input[type=range] + .thumb {
   }
   .img-space {
     width: 700px;
-  	height: 540px;
+  	height: 640px;
   	background: #2f2f2f;
     border-radius: 2%;
     padding-left:8px;
     padding-top:6px;
   	float: inherit;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   .img-space-size {
     width:171px; height:171px;
+  }
+  .modal {
+    width: 30%;
   }
 }
 /*--------------------------------------------- More Device ------------------------------------------------------------*/
@@ -5467,7 +5483,7 @@ button.btn-floating {
 
 .dropdown-content li > a, .dropdown-content li > span {
   font-size: 16px;
-  color: #26a69a;
+  color: #2196F3;
   display: block;
   line-height: 22px;
   padding: 14px 16px;
@@ -6452,6 +6468,18 @@ textarea.materialize-textarea {
   z-index: 0;
 }
 
+.radio-blue[type="radio"]:checked + label:after,
+.radio-blue[type="radio"].with-gap:checked + label:before,
+.radio-blue[type="radio"].with-gap:checked + label:after {
+  border: 2px solid #2196F3;
+}
+
+.radio-blue[type="radio"]:checked + label:after,
+.radio-blue[type="radio"].with-gap:checked + label:after {
+  background-color: #2196F3;
+  z-index: 0;
+}
+
 [type="radio"]:checked + label:after {
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
@@ -6676,6 +6704,14 @@ form p:last-child {
   height: 20px;
   border: 2px solid #26a69a;
   background-color: #26a69a;
+  z-index: 0;
+}
+.checkbox-blue[type="checkbox"].filled-in:checked + label:after {
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #2196F3;
+  background-color: #2196F3;
   z-index: 0;
 }
 

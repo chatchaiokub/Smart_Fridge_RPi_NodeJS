@@ -3,12 +3,25 @@
   var express = require('express')
   var router = express.Router()
 
-  var SUBJECT = 'Order Buy Drink.'
-  var BODYTEXT = ''
+  var EMAIL = ''
+  var TEXTAUTO = ''
+  var COKE = ''
+  var COKEQTY = ''
+  var MILK = ''
+  var MILKQTY = ''
+  var WATER = ''
+  var WATERQTY = ''
 
   router.post('/setupMail', function (req, res) {
-    BODYTEXT = req.body.bodyText
-    res.send('success')
+    EMAIL = req.body.email
+    TEXTAUTO = req.body.textAuto
+    COKE = req.body.list.DataCoke.coke
+    COKEQTY = req.body.list.DataCoke.qty
+    MILK = req.body.list.DataMilk.milk
+    MILKQTY = req.body.list.DataMilk.qty
+    WATER = req.body.list.DataWater.water
+    WATERQTY = req.body.list.DataWater.qty
+    res.send('Email : ' + EMAIL + ', item : ' + TEXTAUTO + COKE + COKEQTY + MILK + MILKQTY + WATER + WATERQTY)
   })
   router.get('/setupEgg', function (req, res) {
     var nodemailer = require('nodemailer')
@@ -24,7 +37,7 @@
       from: '5606021612065@fitm.kmutnb.ac.th',
       to: 'chatty30433@windowslive.com',
       subject: 'Order Buy Eggs',
-      text: 'Buy Eggs 1 Dozen'
+      text: 'Buy 10 Eggs'
     }
     transport.sendMail(mailOptions, function (error, info) {
       if (error) {
@@ -48,9 +61,9 @@
     }))
     var mailOptions = {
       from: '5606021612065@fitm.kmutnb.ac.th',
-      to: 'chatty30433@windowslive.com',
-      subject: SUBJECT,
-      text: BODYTEXT + '12 bottols'
+      to: EMAIL,
+      subject: 'Order Buy Drink',
+      text: TEXTAUTO
     }
     transport.sendMail(mailOptions, function (error, info) {
       if (error) {

@@ -240,17 +240,61 @@ angular.module('dragApp', [])
       $scope.PACK = response.data
     })
   }
+  // Setting Tray /////////////////////////////////////
   $scope.openSettingTray = function () {
     $('#openSettingTray').openModal()
   }
-  $scope.order = [{item: 'Coke 220ml'}, {item: 'Milk 220ml'}, {item: 'Water 220ml'}]
-  $scope.setupMail = function (M) {
-    $http.post('/setupMail', M).success(function (response) {
-      console.log(response)
-    }).error(function (data, status, headers, config) {
-      console.log('error')
-    })
+  $scope.check = function () {
+    if ($scope.content === 'auto') {
+      $scope.orderCustom[0].done = false
+      $scope.orderCustom[1].done = false
+      $scope.orderCustom[2].done = false
+      $scope.orderCustom[0].amount = 0
+      $scope.orderCustom[1].amount = 0
+      $scope.orderCustom[2].amount = 0
+      $scope.sum = 0
+    }else {
+      $scope.infoAuto = ''
+    }
   }
+  $scope.checkTotal = function (id) {
+    $scope.sum -= $scope.orderCustom[id].amount
+    $scope.orderCustom[id].amount = 0
+  }
+  $scope.sum = 0
+  $scope.email = [
+    { email: 'chatty30433@windowslive.com', name: 'Chatchaiokub' },
+    { email: '5606021612065@fitm.kmutnb.ac.th', name: 'CC.KMUTNB' }
+  ]
+  $scope.orderAuto = [
+    { item: 'Coke 220ml x 12 bottles' },
+    { item: 'Milk 220ml x 12 bottles' },
+    { item: 'Water 220ml x 12 bottles' }
+  ]
+  $scope.orderCustom = [
+    { id: 1, name: 'Milk 220ml', amount: 0, done: false },
+    { id: 2, name: 'Coke 220ml', amount: 0, done: false },
+    { id: 3, name: 'Water 220ml', amount: 0, done: false }
+  ]
+  $scope.updateCustom = function () {
+    $scope.sum = 0
+    for (var i = 0; i < $scope.orderCustom.length; i++) {
+      $scope.sum += $scope.orderCustom[i].amount
+    }
+  }
+  $scope.send = function () {
+    console.log($scope.orderCustom[0].name + ' x ' + $scope.orderCustom[0].amount + ' bottles')
+    console.log($scope.orderCustom[1].name + ' x ' + $scope.orderCustom[1].amount + ' bottles')
+    console.log($scope.orderCustom[2].name + ' x ' + $scope.orderCustom[2].amount + ' bottles')
+  }
+  // ///////////////////////////////////////////
+  // $scope.setupMail = function (i) {
+  //   $http.post('/setupMail', info).success(function (response) {
+  //     console.log(response)
+  //   }).error(function (data, status, headers, config) {
+  //     console.log('error')
+  //   })
+  // }
   // FrontEnd Control RaspberryPi /////////////////////////////////////////////
   $scope.click = function () {
     console.log('Snapshot!')
