@@ -212,7 +212,6 @@ angular.module('dragApp', [])
     }
   }
   $scope.LEDAlert = function () {
-    console.log($scope.state)
     if ($scope.state === 1) {
       $http.get('/ledAlertON').success(function (response) {
         console.log(response)
@@ -283,18 +282,51 @@ angular.module('dragApp', [])
     }
   }
   $scope.send = function () {
-    console.log($scope.orderCustom[0].name + ' x ' + $scope.orderCustom[0].amount + ' bottles')
-    console.log($scope.orderCustom[1].name + ' x ' + $scope.orderCustom[1].amount + ' bottles')
-    console.log($scope.orderCustom[2].name + ' x ' + $scope.orderCustom[2].amount + ' bottles')
+    if ($scope.infoAuto !== '') {
+      var information1 = {}
+      information1 = {
+        email: $scope.infoEmail,
+        text: $scope.infoAuto
+      }
+      console.log(information1)
+      $http.post('/setupMail', information1).success(function (response) {
+        $scope.infoEmail = ''
+        $scope.infoAuto = ''
+        information1 = {}
+        console.log(response)
+      }).error(function (data, status, headers, config) {
+        console.log('error')
+      })
+    }else if ($scope.sum === 12) {
+      var Info2 = ''
+      var information2 = {}
+      if ($scope.orderCustom[0].amount !== 0) {
+        Info2 += $scope.orderCustom[0].name + ' x ' + $scope.orderCustom[0].amount + ' bottles, '
+      }
+      if ($scope.orderCustom[1].amount !== 0) {
+        Info2 += $scope.orderCustom[1].name + ' x ' + $scope.orderCustom[1].amount + ' bottles, '
+      }
+      if ($scope.orderCustom[2].amount !== 0) {
+        Info2 += $scope.orderCustom[2].name + ' x ' + $scope.orderCustom[2].amount + ' bottles, '
+      }
+      information2 = {
+        email: $scope.infoEmail,
+        text: Info2
+      }
+      console.log(information2)
+      $http.post('/setupMail', information2).success(function (response) {
+        $scope.infoEmail = ''
+        Info2 = ''
+        information2 = {}
+        $scope.orderCustom[0].amount = 0
+        $scope.orderCustom[1].amount = 0
+        $scope.orderCustom[2].amount = 0
+        console.log(response)
+      }).error(function (data, status, headers, config) {
+        console.log('error')
+      })
+    }
   }
-  // ///////////////////////////////////////////
-  // $scope.setupMail = function (i) {
-  //   $http.post('/setupMail', info).success(function (response) {
-  //     console.log(response)
-  //   }).error(function (data, status, headers, config) {
-  //     console.log('error')
-  //   })
-  // }
   // FrontEnd Control RaspberryPi /////////////////////////////////////////////
   $scope.click = function () {
     console.log('Snapshot!')

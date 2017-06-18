@@ -326,7 +326,7 @@
               <p>x</p>
             </div>
             <div ng-show="item.done" class="col s3 m3 l3">
-              <input type="number" ng-model="item.amount" ng-change="updateCustom()">
+              <input type="number" min="0" step="1" ng-model="item.amount" ng-change="updateCustom()">
             </div>
         </div>
       </div>
