@@ -302,13 +302,13 @@ angular.module('dragApp', [])
       var Info2 = ''
       var information2 = {}
       if ($scope.orderCustom[0].amount !== 0) {
-        Info2 += $scope.orderCustom[0].name + ' x ' + $scope.orderCustom[0].amount + ' bottles, ' + '<br>'
+        Info2 += '<div>' + $scope.orderCustom[0].name + ' x ' + $scope.orderCustom[0].amount + ' bottles, ' + '<br></div>'
       }
       if ($scope.orderCustom[1].amount !== 0) {
-        Info2 += $scope.orderCustom[1].name + ' x ' + $scope.orderCustom[1].amount + ' bottles, ' + '<br>'
+        Info2 += '<div>' + $scope.orderCustom[1].name + ' x ' + $scope.orderCustom[1].amount + ' bottles, ' + '<br></div>'
       }
       if ($scope.orderCustom[2].amount !== 0) {
-        Info2 += $scope.orderCustom[2].name + ' x ' + $scope.orderCustom[2].amount + ' bottles, ' + '<br>'
+        Info2 += '<div>' + $scope.orderCustom[2].name + ' x ' + $scope.orderCustom[2].amount + ' bottles, ' + '<br></div>'
       }
       information2 = {
         email: $scope.infoEmail,
