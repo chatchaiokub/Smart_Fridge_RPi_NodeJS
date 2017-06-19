@@ -302,7 +302,7 @@ angular.module('dragApp', [])
       var Info2 = ''
       var information2 = {}
       if ($scope.orderCustom[0].amount !== 0) {
-        Info2 += $scope.orderCustom[0].name + ' x ' + $scope.orderCustom[0].amount + ' bottles, \n'
+        Info2 += $scope.orderCustom[0].name + ' x ' + $scope.orderCustom[0].amount + ' bottles, <br>'
       }
       if ($scope.orderCustom[1].amount !== 0) {
         Info2 += $scope.orderCustom[1].name + ' x ' + $scope.orderCustom[1].amount + ' bottles, \n'
