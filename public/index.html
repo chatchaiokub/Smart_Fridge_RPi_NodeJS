@@ -326,7 +326,7 @@
               <p>x</p>
             </div>
             <div ng-show="item.done" class="col s3 m3 l3">
-              <input type="number" min="0" step="1" ng-model="item.amount" ng-change="updateCustom()">
+              <input type="number" min="0" step="1" max="12" ng-model="item.amount" ng-change="updateCustom()">
             </div>
         </div>
       </div>
@@ -335,7 +335,7 @@
       </div>
       <div class="row">
         <div class="col s12 m12 l12">
-          <button onclick="Materialize.toast('Saved!',1500,'rounded')" type="submit" style="width:100%;" class="btn blue" ng-disabled="(!infoEmail || sum === 0 || sum < 12) && (!infoAuto || !infoEmail)">SAVE</button>
+          <button onclick="Materialize.toast('Saved!',1500,'rounded')" type="submit" style="width:100%;" class="btn blue" ng-disabled="(!infoEmail || sum === 0 || sum < 12 || sum === 'Over') && (!infoAuto || !infoEmail)">SAVE</button>
         </div>
       </div>
     </div>

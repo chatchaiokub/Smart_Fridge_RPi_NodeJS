@@ -262,7 +262,7 @@ angular.module('dragApp', [])
   }
   $scope.sum = 0
   $scope.email = [
-    { email: 'chatty30433@windowslive.com', name: 'Chatchaiokub' },
+    { email: 'chatty30433@windowslive.com', name: 'CC.OCCOP' },
     { email: '5606021612065@fitm.kmutnb.ac.th', name: 'CC.KMUTNB' }
   ]
   $scope.orderAuto = [
@@ -279,6 +279,9 @@ angular.module('dragApp', [])
     $scope.sum = 0
     for (var i = 0; i < $scope.orderCustom.length; i++) {
       $scope.sum += $scope.orderCustom[i].amount
+    }
+    if ($scope.sum > 12) {
+      $scope.sum = 'Over'
     }
   }
   $scope.send = function () {
