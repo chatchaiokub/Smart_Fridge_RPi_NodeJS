@@ -9,7 +9,7 @@
   router.post('/setupMail', function (req, res) {
     email = req.body.email
     body = req.body.text
-    res.send('success' + email + body)
+    res.send('success : ' + email + ' , ' + body)
   })
   router.get('/setupEgg', function (req, res) {
     var nodemailer = require('nodemailer')

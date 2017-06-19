@@ -290,8 +290,6 @@ angular.module('dragApp', [])
       }
       console.log(information1)
       $http.post('/setupMail', information1).success(function (response) {
-        $scope.infoEmail = ''
-        $scope.infoAuto = ''
         information1 = {}
         console.log(response)
       }).error(function (data, status, headers, config) {
@@ -315,12 +313,8 @@ angular.module('dragApp', [])
       }
       console.log(information2)
       $http.post('/setupMail', information2).success(function (response) {
-        $scope.infoEmail = ''
         Info2 = ''
         information2 = {}
-        $scope.orderCustom[0].amount = 0
-        $scope.orderCustom[1].amount = 0
-        $scope.orderCustom[2].amount = 0
         console.log(response)
       }).error(function (data, status, headers, config) {
         console.log('error')
