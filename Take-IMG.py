@@ -69,13 +69,5 @@ while True:
   else:
    on()
    line = 0
- 
- #if RCtime(LDR) < 1000:
-  #line = 1
-  #if line == 1:
-  # LINE += line
-  #if LINE == 40:
-  # os.system ("python Alertdoor.py")
-  # LINE = 0
   
  print RCtime(LDR)
